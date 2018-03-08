@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import mainPage from './js/comps/mainPage';
+import App from './App';
 
-AppRegistry.registerComponent('SafePassage', () => mainPage);
+AppRegistry.registerComponent('SafePassage', () => App);

@@ -5,12 +5,12 @@ import {
 } from 'react-navigation';
 // this allows us to  use Reacts built in navigation interface
 
-import TestPage from '../pages/TestPage'
+import MainPage from '../../../js/comps/mainPage'
 // brings the profile page into the main file
 
 const RootNavigation=StackNavigator({
   
-  Home: {screen: TestPage},
+  Home: {screen: MainPage},
   // declare our screens
   
 })
