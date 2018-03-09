@@ -8,10 +8,12 @@ import {
   TextInput
 } from "react-native";
 import storeFactory from '../../src/store';
-import { addError,
+import {
+  addError,
   clearError,
   isFetching,
   notFetching,
+  getAirTemp,
 } from '../../src/actions'
 
 const store = storeFactory()
@@ -21,16 +23,7 @@ export default class mainPage extends Component {
   //this is to test that the store is working
   componentWillMount() {
     store.dispatch(
-      addError('have an error')
-    );
-    store.dispatch(
-      isFetching()
-    );
-    store.dispatch(
-      notFetching()
-    );
-    store.dispatch(
-      clearError(0)
+      getAirTemp()
     );
   }
 
