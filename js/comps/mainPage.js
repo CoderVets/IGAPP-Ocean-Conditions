@@ -5,7 +5,8 @@ import {
   Text,
   View,
   ImageBackground,
-  TextInput
+  TextInput,
+  ScrollView
 } from "react-native";
 import storeFactory from '../../src/store';
 import { addError,
@@ -36,16 +37,20 @@ export default class mainPage extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView 
+         style={{
+          flex: 1,
+          flexDirection: 'row',
+          }}>
       
-        <ImageBackground
+        {/* <ImageBackground
           source={require("./images/Compass.png")}
           style={styles.backgroundImage}
-        >
+        > */}
         <ImageBackground
           source={require("./images/sideBar.jpg")}
           style={styles.backgroundImage2}>
-
+        
           <TextInput placeholder = '52ºA' style={styles.text1}/> 
 
           <TextInput placeholder = '48ºO' style={styles.text2}/> 
@@ -61,29 +66,32 @@ export default class mainPage extends Component {
           <TextInput placeholder = 'other' style={styles.text7}/>
 
           <TextInput placeholder = 'other' style={styles.text8}/>
-
+          
           </ImageBackground>
+          
 
-        </ImageBackground>
-      </View>
+        {/* </ImageBackground> */}
+        </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#7098d8"
+    flex: 2,
+    width: null,
+    height: null,
+
+  
   },
   text1: {
     
-    marginTop: 30,
-    marginBottom: 20,
-    marginRight: -5,
-    height: 60,
-    width: 60, 
+    // marginTop: 30,
+    // marginBottom: 20,
+    // marginRight: -100,
+    flex: 3,
+    height: 100,
+    width: 100, 
      borderColor: 'black', 
      borderWidth: 1,
      borderRadius: 50,
@@ -94,10 +102,11 @@ const styles = StyleSheet.create({
       flexWrap: 'wrap',
   },
   text2: {
-    marginBottom: 20,
-    marginRight: -5,
-    height: 60,
-    width: 60, 
+    // marginBottom: 20,
+    // marginRight: -100,
+    flex: 3,
+    height: 100,
+    width: 100, 
    borderColor: 'black', 
    borderWidth: 1,
    borderRadius: 50,
@@ -108,13 +117,14 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   text3: {
-    marginBottom: 20,
-    marginRight: -5,
-    height: 60,
-    width: 60, 
+    // marginBottom: 20,
+    // marginRight: -100,
+    flex: 3,
+    height: 100,
+    width: 100, 
    borderColor: 'black', 
    borderWidth: 1,
-   borderRadius: 30,
+   borderRadius: 50,
     textAlign:'center',
     justifyContent: 'center',
     alignSelf: 'center',
@@ -122,10 +132,11 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   text4: {
-    marginBottom: 20,
-    marginRight: -5,
-    height: 60,
-    width: 60, 
+    // marginBottom: 20,
+    // marginRight: -100,
+    flex: 3,
+    height: 100,
+    width: 100, 
    borderColor: 'black', 
    borderWidth: 1,
    borderRadius: 50,
@@ -136,10 +147,11 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   text5: {
-    marginBottom: 20,
-    marginRight: -5,
-    height: 60,
-    width: 60, 
+    // marginBottom: 20,
+    // marginRight: -100,
+    flex: 3,
+    height: 100,
+    width: 100, 
    borderColor: 'black', 
    borderWidth: 1,
    borderRadius: 50,
@@ -151,10 +163,11 @@ const styles = StyleSheet.create({
 
   },
   text6: {
-    marginBottom: 20,
-    marginRight: -5,
-    height: 60,
-    width: 60, 
+    // marginBottom: 20,
+    // marginRight: -100,
+    flex: 3,
+    height: 100,
+    width: 100, 
    borderColor: 'black', 
    borderWidth: 1,
    borderRadius: 50,
@@ -166,10 +179,11 @@ const styles = StyleSheet.create({
 
   },
   text7: {
-    marginBottom: 20,
-    marginRight: -5,
-    height: 60,
-    width: 60, 
+    // marginBottom: 20,
+    // marginRight: -100,
+    flex: 3,
+    height: 100,
+    width: 100, 
    borderColor: 'black', 
    borderWidth: 1,
    borderRadius: 50,
@@ -181,10 +195,11 @@ const styles = StyleSheet.create({
 
   },
   text8: {
-    marginBottom: 20,
-    marginRight: -5,
-    height: 60,
-    width: 60, 
+    // marginBottom: 20,
+    // marginRight: -100,
+    flex: 3,
+    height: 100,
+    width: 100, 
    borderColor: 'black', 
    borderWidth: 1,
    borderRadius: 50,
@@ -192,24 +207,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'center',
     fontSize: 16,
-    flexWrap: 'wrap',
+    // flexWrap: 'wrap',
 
   },
-  backgroundImage: {
+  // backgroundImage: {
    
     
-    height: 175,
-    width: 175,
-    alignItems: "center",
-    justifyContent: "center"
-  },
+  //   height: 50,
+  //   width: 50,
+  //   alignItems: "center",
+  //   justifyContent: "center"
+  // },
   backgroundImage2: {
-    
-    opacity: .7,
-    marginRight: 300,
-    height: 700,
-    width: 80,
-    alignItems: "center",
-    justifyContent: "center"
+    flex: 3,
+  
   }
 });
