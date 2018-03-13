@@ -10,7 +10,13 @@ import MainPage from '../../../js/comps/mainPage'
 
 const RootNavigation=StackNavigator({
   
-  Home: {screen: MainPage},
+  Home: {
+    screen: MainPage,
+    navigationOptions: {
+    title: null,
+    header: null,
+    }},
+  
   // declare our screens
   
 })
