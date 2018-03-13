@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
@@ -7,18 +7,16 @@ import {
   ImageBackground,
   TextInput,
   ScrollView
-} from "react-native";
-import storeFactory from "../../src/store";
+} from 'react-native';
+
 import storeFactory from '../../src/store';
 import {
   addError,
   clearError,
   isFetching,
-  notFetching
-} from "../../src/actions";
   notFetching,
-  getAirTemp,
-} from '../../src/actions'
+  getAirTemp
+} from '../../src/actions';
 
 const store = storeFactory();
 
@@ -45,7 +43,7 @@ export default class mainPage extends Component {
           source={require("./images/sideBar.jpg")}
           style={styles.backgroundImage2}
         >
-        <ScrollView 
+        <ScrollView
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
         style={{
@@ -85,7 +83,7 @@ const styles = StyleSheet.create({
     // marginTop: 30,
     marginBottom: 20,
     // marginRight: -100,
-    
+
     height: 100,
     width: 150,
     borderColor: "black",
@@ -100,7 +98,7 @@ const styles = StyleSheet.create({
   text2: {
     marginBottom: 20,
     // marginRight: -100,
-    
+
     height: 100,
     width: 150,
     borderColor: "black",
@@ -115,7 +113,7 @@ const styles = StyleSheet.create({
   text3: {
     marginBottom: 20,
     // marginRight: -100,
-    
+
     height: 100,
     width: 150,
     borderColor: "black",
@@ -130,7 +128,7 @@ const styles = StyleSheet.create({
   text4: {
     marginBottom: 20,
     // marginRight: -100,
-    
+
     height: 100,
     width: 150,
     borderColor: "black",
@@ -145,7 +143,7 @@ const styles = StyleSheet.create({
   text5: {
     marginBottom: 20,
     // marginRight: -100,
-    
+
     height: 100,
     width: 150,
     borderColor: "black",
@@ -160,7 +158,7 @@ const styles = StyleSheet.create({
   text6: {
     marginBottom: 20,
     // marginRight: -100,
-    
+
     height: 100,
     width: 150,
     borderColor: "black",
@@ -174,8 +172,8 @@ const styles = StyleSheet.create({
   },
   text7: {
     marginBottom: 20,
-    
-    
+
+
     height: 100,
     width: 150,
     borderColor: "black",
@@ -189,8 +187,8 @@ const styles = StyleSheet.create({
   },
   text8: {
     marginBottom: 20,
-    
-    
+
+
     height: 100,
     width: 150,
     borderColor: "black",
@@ -210,7 +208,7 @@ const styles = StyleSheet.create({
   //   justifyContent: "center"
   // },
   backgroundImage2: {
-   
+
     opacity: .7,
     marginRight: null,
     height: null,
