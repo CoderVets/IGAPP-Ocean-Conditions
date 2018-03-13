@@ -2,6 +2,10 @@ import C from './constants'
 import csvjson from 'csvjson'
 //import Converter from '../node_modules/csvtojson/libs/core/Converter'
 
+const urlMaker = (i) => {
+
+}
+
 export const addError = (message) => ({
   type: C.ADD_ERROR,
   payload: message,
@@ -26,12 +30,14 @@ export const getAirTemp = () => dispatch => {
   var minLat = 24.6220
   var maxLon = -79.2710
   var maxLat = 27.1220
+  var startTime = '2018-03-09T00:00:00Z'
+  var endTime = '2018-03-09T00:59:00Z'
 
   var url = 'https://opendap.co-ops.nos.noaa.gov/ioos-dif-sos/SOS?service=SOS'+
             '&request=GetObservation&version=1.0.0&observedProperty=air_temperature'+
             '&offering=urn:ioos:network:NOAA.NOS.CO-OPS:MetActive&featureOfInterest=BBOX:'+
             minLon + ',' + minLat + ',' + maxLon + ',' + maxLat +
-            '&responseFormat=text/csv&eventTime=2018-03-09T00:00:00Z/2018-03-09T00:59:00Z&unit=Fahrenheit'
+            '&responseFormat=text/csv&eventTime=' + startTime + '/' + endTime + '&unit=Fahrenheit'
 
   dispatch({
     type: C.FETCHING

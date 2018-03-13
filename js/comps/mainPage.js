@@ -8,6 +8,7 @@ import {
   TextInput
 } from "react-native";
 import storeFactory from '../../src/store';
+import { connect } from 'react-redux'
 import {
   addError,
   clearError,
@@ -15,10 +16,22 @@ import {
   notFetching,
   getAirTemp,
 } from '../../src/actions'
+import AirTempTest from "./airTempTest";
+import { Provider } from 'react-redux';
 
 const store = storeFactory()
 
-export default class mainPage extends Component {
+class mainPage extends Component{
+  constructor(props){
+    super(props);
+    /* screenProps = {
+      airTemp: 100
+    } */
+    this.state = {
+      airTemp: '100',
+      fetching: true
+    };
+  }
 
   //this is to test that the store is working
   componentWillMount() {
@@ -27,8 +40,20 @@ export default class mainPage extends Component {
     );
   }
 
+  componentDidMount() {
+    // console.log(this.props)
+    console.log(store.getState().fetching);
+  }
+  
   render() {
+    console.log(store.getState().fetching)
+    /*if (store.getState().fetching == true){
+      return (
+        <TextInput placeholder = 'Fetching...' style={styles.text1}/> 
+      )
+    }*/
     return (
+      <Provider store={store}>
       <View style={styles.container}>
       
         <ImageBackground
@@ -39,7 +64,7 @@ export default class mainPage extends Component {
           source={require("./images/sideBar.jpg")}
           style={styles.backgroundImage2}>
 
-          <TextInput placeholder = '52ºA' style={styles.text1}/> 
+          <TextInput placeholder = '48ºO' style={styles.text1}/> 
 
           <TextInput placeholder = '48ºO' style={styles.text2}/> 
 
@@ -55,10 +80,11 @@ export default class mainPage extends Component {
 
           <TextInput placeholder = 'other' style={styles.text8}/>
 
-          </ImageBackground>
-
         </ImageBackground>
+        </ImageBackground>  
+        <AirTempTest/>   
       </View>
+      </Provider>
     );
   }
 }
@@ -206,3 +232,17 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   }
 });
+
+export default mainPage
+/* const mapStateToProps = (state) => {
+	return {
+		airTemp: state.airTemp.length,
+		fetching: state.fetching,
+		//AirTemp: state.airTemp["0"][""air_temperature (F)""]
+		//powder: state.allSkiDays.filter(day => day.powder).length,
+		//backcountry: state.allSkiDays.filter(day => day.backcountry).length
+	}
+  console.log(mainPage.props)
+}
+
+export default connect(mapStateToProps)(mainPage) */
