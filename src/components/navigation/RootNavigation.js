@@ -8,8 +8,9 @@ import {
 import MainPage from '../../../js/comps/mainPage'
 // brings the profile page into the main file
 
+
 const RootNavigation=StackNavigator({
-  
+
   Home: {
     screen: MainPage,
     navigationOptions: {

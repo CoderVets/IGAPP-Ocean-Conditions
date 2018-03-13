@@ -13,6 +13,8 @@
     "react": "16.2.0",
     "react-native": "0.53.3",
     "react-native-simple-compass": "^1.0.0",
+    "react-native-smart-splash-screen": "^2.3.5",
+    "react-native-splash-screen": "^3.0.6",
     "react-navigation": "^1.4.0",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",

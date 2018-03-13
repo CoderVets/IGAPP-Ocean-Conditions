@@ -17,11 +17,13 @@ import {
   notFetching,
   getAirTemp
 } from '../../src/actions';
+import SplashScreen from 'react-native-smart-splash-screen'
 
 const store = storeFactory();
 
 export default class mainPage extends Component {
   //this is to test that the store is working
+
   componentWillMount() {
     store.dispatch(addError("have an error"));
     store.dispatch(isFetching());
@@ -29,11 +31,15 @@ export default class mainPage extends Component {
     store.dispatch(clearError(0));
     store.dispatch(
       getAirTemp()
+      
     );
+  
   }
+  
 
   render() {
     return (
+      
       <View style={styles.container}>
         {/* <ImageBackground
           source={require("./images/Compass.png")}
@@ -49,21 +55,21 @@ export default class mainPage extends Component {
         style={{
          }}
       >
-          <TextInput placeholder="52ºA" style={styles.text1} />
+          <TextInput editable={false} selectTextOnFocus={false} placeholder="52ºA" style={styles.text1} />
 
-          <TextInput placeholder="48ºO" style={styles.text2} />
+          <TextInput editable={false} selectTextOnFocus={false} placeholder="48ºO" style={styles.text2} />
 
-          <TextInput placeholder="W/S" style={styles.text3} />
+          <TextInput editable={false} selectTextOnFocus={false} placeholder="W/S" style={styles.text3} />
 
-          <TextInput placeholder="Current" style={styles.text4} />
+          <TextInput editable={false} selectTextOnFocus={false} placeholder="Current" style={styles.text4} />
 
-          <TextInput placeholder="other" style={styles.text5} />
+          <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text5} />
 
-          <TextInput placeholder="other" style={styles.text6} />
+          <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text6} />
 
-          <TextInput placeholder="other" style={styles.text7} />
+          <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text7} />
 
-          <TextInput placeholder="other" style={styles.text8} />
+          <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text8} />
   </ScrollView>
         </ImageBackground>
 
