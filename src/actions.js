@@ -1,6 +1,5 @@
 import C from './constants'
 import csvjson from 'csvjson'
-//import Converter from '../node_modules/csvtojson/libs/core/Converter'
 
 const urlMaker = (i) => {
 
@@ -58,7 +57,6 @@ export const getAirTemp = () => dispatch => {
 
     var airTemp = csvjson.toObject(respText, options);
     
-    //console.log(airTemp)
     dispatch({
       type: C.GET_AIR_TEMP,
       payload: airTemp

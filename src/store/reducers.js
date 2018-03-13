@@ -18,7 +18,6 @@ const airTemp = (state = {}, action) => {
     case C.GET_AIR_TEMP:
       newState = action.payload
       return newState;
-      break
     default:
       return state;
   }
@@ -39,18 +38,12 @@ const errors = (state=[], action) => {
 };
 
 const fetching = (state = true, action) => {
-  console.log(action.type)
   switch (action.type) {
     case C.FETCHING:
-    console.log('fetching')
       return true;
-      break
     case C.CANCEL_FETCHING:
-      console.log('cancel fetching')
       return false;
-      break
     default:
-      console.log('default')
       return state;
   }
 };
