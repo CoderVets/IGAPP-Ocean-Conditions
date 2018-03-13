@@ -6,49 +6,20 @@ import {
   ActivityIndicator,
 } from 'react-native'
 import { connect } from 'react-redux'
-// import RNFS from "react-native-fs"
+import findElement from '../findElement'
 
 const AirTempTest = (props) => {
-  /*console.log("hello")
+  var airTemp = findElement(props.airTemp[0], '"air_temperature (F)"');
   if (props.fetching) {
-    return(
-      <View style={styles.container}>
-        <ActivityIndicator />
+    return (
+      <View>
+        <ActivityIndicator/>
       </View>
-    );
+    )
   }
-  //console.log(props.airTemp)
   return (
     <View style={styles.container}>
-      <Text>Fetching = {props.airTemp.Length}</Text>
-    </View>
-  )*/
-  //props.fetching = false;
-  console.log("yo!!")
-  var test = props.airTemp;
-
-  //console.log(test[0]["sensor_id"]);
-
-  //console.log(typeof test[0]);
-
-  //var test2 = test.substring(test.lastIndexOf('(F)":"')+1,test.lastIndexOf('"quality_flags'));
-
-  //console.log(test2)
-  
-  /*var test = JSON.stringify(props.airTemp["0"])
-  var path = RNFS.DocumentDirectoryPath + "/stuff.json";
-  RNFS.writeFile(path, test, "utf8")
-    .then(success => {
-      console.log("file written")
-      console.log(path)
-    })
-    .catch(err => {
-      console.log(err.message)
-    })*/
-  //console.log(props.fetching)
-  return (
-    <View style={styles.container}>
-      <Text>Fetching = {props.airTemp.length}</Text>
+      <Text>Air Temp = {airTemp}ºF</Text>
     </View>
   )
 }
@@ -63,16 +34,10 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state) => {
-  //console.log(state)
-  console.log("hello2")
 	return {
 		airTemp: state.airTemp,
 		fetching: state.fetching,
-		//AirTemp: state.airTemp["0"][""air_temperature (F)""]
-		//powder: state.allSkiDays.filter(day => day.powder).length,
-		//backcountry: state.allSkiDays.filter(day => day.backcountry).length
 	}
-
 }
 
 export default connect(mapStateToProps)(AirTempTest)
