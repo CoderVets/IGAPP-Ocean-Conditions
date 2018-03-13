@@ -9,12 +9,16 @@ import {
   ScrollView
 } from "react-native";
 import storeFactory from "../../src/store";
+import storeFactory from '../../src/store';
 import {
   addError,
   clearError,
   isFetching,
   notFetching
 } from "../../src/actions";
+  notFetching,
+  getAirTemp,
+} from '../../src/actions'
 
 const store = storeFactory();
 
@@ -25,6 +29,9 @@ export default class mainPage extends Component {
     store.dispatch(isFetching());
     store.dispatch(notFetching());
     store.dispatch(clearError(0));
+    store.dispatch(
+      getAirTemp()
+    );
   }
 
   render() {

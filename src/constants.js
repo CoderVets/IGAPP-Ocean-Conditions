@@ -5,6 +5,7 @@ const constants = {
   CLEAR_ERROR: 'CLEAR_ERROR',
   GET_LOC: 'GET_LOC',
   GET_DATA: 'GET_DATA',
+  GET_AIR_TEMP: 'GET_AIR_TEMP'
 
   /* ADD_DAY: "ADD_DAY",
 REMOVE_DAY: "REMOVE_DAY",
