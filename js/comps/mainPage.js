@@ -17,7 +17,7 @@ import {
   notFetching,
   getAirTemp
 } from '../../src/actions';
-import SplashScreen from 'react-native-smart-splash-screen'
+import SplashScreen from 'react-native-splash-screen'
 
 const store = storeFactory();
 
