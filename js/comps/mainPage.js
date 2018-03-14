@@ -10,19 +10,22 @@ import {
 } from 'react-native';
 
 import storeFactory from '../../src/store';
+import { connect } from 'react-redux'
 import {
   addError,
   clearError,
   isFetching,
   notFetching,
-  getAirTemp
-} from '../../src/actions';
+  getAirTemp,
+} from '../../src/actions'
+import AirTempTest from "./airTempTest";
+import { Provider } from 'react-redux';
 import SplashScreen from 'react-native-splash-screen'
 
 const store = storeFactory();
 
-export default class mainPage extends Component {
 
+export default class mainPage extends Component{
   componentWillMount() {
     store.dispatch(
       getAirTemp()
@@ -34,8 +37,9 @@ export default class mainPage extends Component {
   }
 
   render() {
+    
     return (
-      
+      <Provider store={store}>
       <View style={styles.container}>
         {/* <ImageBackground
           source={require("./images/Compass.png")}
@@ -68,9 +72,10 @@ export default class mainPage extends Component {
           <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text8} />
   </ScrollView>
         </ImageBackground>
-
+        <AirTempTest/>
         {/* </ImageBackground> */}
      </View>
+     </Provider>
     );
   }
 }

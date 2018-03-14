@@ -37,7 +37,7 @@ const errors = (state=[], action) => {
   }
 };
 
-const fetching = (state = false, action) => {
+const fetching = (state = true, action) => {
   switch (action.type) {
     case C.FETCHING:
       return true;
