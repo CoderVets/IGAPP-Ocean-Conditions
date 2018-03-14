@@ -14,6 +14,7 @@
     "react-native": "^0.53.3",
     "react-native-fs": "^2.9.11",
     "react-native-simple-compass": "^1.0.0",
+    "react-native-splash-screen": "^3.0.6",
     "react-navigation": "^1.4.0",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
