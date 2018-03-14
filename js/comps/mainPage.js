@@ -22,20 +22,16 @@ import SplashScreen from 'react-native-splash-screen'
 const store = storeFactory();
 
 export default class mainPage extends Component {
-  //this is to test that the store is working
 
   componentWillMount() {
-    store.dispatch(addError("have an error"));
-    store.dispatch(isFetching());
-    store.dispatch(notFetching());
-    store.dispatch(clearError(0));
     store.dispatch(
       getAirTemp()
-      
     );
-  
   }
-  
+
+  componentDidMount() {
+    SplashScreen.hide();
+  }
 
   render() {
     return (
