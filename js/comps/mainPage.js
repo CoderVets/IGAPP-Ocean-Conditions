@@ -40,41 +40,43 @@ export default class mainPage extends Component{
     
     return (
       <Provider store={store}>
-      <View style={styles.container}>
-        {/* <ImageBackground
-          source={require("./images/Compass.png")}
-          style={styles.backgroundImage}
-        > */}
-        <ImageBackground
-          source={require("./images/sideBar.jpg")}
-          style={styles.backgroundImage2}
-        >
-        <ScrollView
-        showsHorizontalScrollIndicator={false}
-        showsVerticalScrollIndicator={false}
-        style={{
-         }}
-      >
-          <TextInput editable={false} selectTextOnFocus={false} placeholder="52ºA" style={styles.text1} />
+        <View style={styles.container}>
+          {/* <ImageBackground
+            source={require("./images/Compass.png")}
+            style={styles.backgroundImage}
+          > */}
+            <ImageBackground
+              source={require("./images/sideBar.jpg")}
+              style={styles.backgroundImage2}
+            >
+              <ScrollView
+              showsHorizontalScrollIndicator={false}
+              showsVerticalScrollIndicator={false}
+              style={{
+              }}
+              >
+                <AirTempTest/>
+                
+                <TextInput editable={false} selectTextOnFocus={false} placeholder="52ºA" style={styles.text1} />
 
-          <TextInput editable={false} selectTextOnFocus={false} placeholder="48ºO" style={styles.text2} />
+                <TextInput editable={false} selectTextOnFocus={false} placeholder="48ºO" style={styles.text2} />
 
-          <TextInput editable={false} selectTextOnFocus={false} placeholder="W/S" style={styles.text3} />
+                <TextInput editable={false} selectTextOnFocus={false} placeholder="W/S" style={styles.text3} />
 
-          <TextInput editable={false} selectTextOnFocus={false} placeholder="Current" style={styles.text4} />
+                <TextInput editable={false} selectTextOnFocus={false} placeholder="Current" style={styles.text4} />
 
-          <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text5} />
+                <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text5} />
 
-          <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text6} />
+                <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text6} />
 
-          <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text7} />
+                <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text7} />
 
-          <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text8} />
-  </ScrollView>
-        </ImageBackground>
-        <AirTempTest/>
-        {/* </ImageBackground> */}
-     </View>
+                <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text8} />
+
+              </ScrollView>
+            </ImageBackground>
+          {/* </ImageBackground> */}
+      </View>
      </Provider>
     );
   }
