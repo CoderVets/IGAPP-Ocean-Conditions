@@ -12,22 +12,16 @@ import { combineReducers } from 'redux'
     action.payload :
     state; */
 
-/* const getLyftETA = (state = {}, action) => {
+const airTemp = (state = {}, action) => {
   let newState;
   switch (action.type) {
-    case C.ETA:
-      console.log('THIS IS THE REDUCER FIRING WE HAVE A REDUX STORE');
-      //console.log(action)
-      newState = {
-        etaSeconds: action.payload[0].eta_seconds,
-      };
-      console.log('THIS IS THE NEW USER STATE');
-      console.log(newState);
+    case C.GET_AIR_TEMP:
+      newState = action.payload
       return newState;
     default:
       return state;
   }
-}; */
+};
 
 const errors = (state=[], action) => {
   switch(action.type) {
@@ -80,6 +74,7 @@ const fetching = (state = false, action) => {
 export default combineReducers({
   //getEtaAccToken,
   //getLyftETA,
+  airTemp,
   errors,
   fetching,
   //user,
