@@ -1,12 +1,14 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
   Text,
   View,
   ImageBackground,
-  TextInput
-} from "react-native";
+  TextInput,
+  ScrollView
+} from 'react-native';
+
 import storeFactory from '../../src/store';
 // import {
 //   addError,
@@ -17,12 +19,16 @@ import storeFactory from '../../src/store';
 //   getCur,
 // } from '../../src/actions'
 import * as fetching from '../../src/actions'
+import { connect } from 'react-redux'
+import AirTempTest from "./airTempTest";
+import { Provider } from 'react-redux';
 
-const store = storeFactory()
+//import SplashScreen from 'react-native-splash-screen'
 
-export default class mainPage extends Component {
+const store = storeFactory();
 
-  //this is to test that the store is working
+
+export default class mainPage extends Component{
   componentWillMount() {
     store.dispatch(
       fetching.getAirTemp()
@@ -47,38 +53,53 @@ export default class mainPage extends Component {
     );
   }
 
+  componentDidMount() {
+    SplashScreen.hide();
+  }
+
   render() {
+    
     return (
-      <View style={styles.container}>
-      
-        <ImageBackground
-          source={require("./images/Compass.png")}
-          style={styles.backgroundImage}
-        >
-        <ImageBackground
-          source={require("./images/sideBar.jpg")}
-          style={styles.backgroundImage2}>
+      <Provider store={store}>
+        <View style={styles.container}>
+          {/* <ImageBackground
+            source={require("./images/Compass.png")}
+            style={styles.backgroundImage}
+          > */}
+            <ImageBackground
+              source={require("./images/sideBar.jpg")}
+              style={styles.backgroundImage2}
+            >
+              <AirTempTest/>
+                
+              <ScrollView
+              showsHorizontalScrollIndicator={false}
+              showsVerticalScrollIndicator={false}
+              style={{
+              }}
+              >
+               
+                <TextInput editable={false} selectTextOnFocus={false} placeholder="52ºA" style={styles.text1}>{airTemp}</TextInput>
 
-          <TextInput placeholder = '52ºA' style={styles.text1}/> 
+                <TextInput editable={false} selectTextOnFocus={false} placeholder="48ºO" style={styles.text2} />
 
-          <TextInput placeholder = '48ºO' style={styles.text2}/> 
+                <TextInput editable={false} selectTextOnFocus={false} placeholder="W/S" style={styles.text3} />
 
-          <TextInput placeholder = 'W/S' style={styles.text3}/>  
+                <TextInput editable={false} selectTextOnFocus={false} placeholder="Current" style={styles.text4} />
 
-          <TextInput placeholder = 'Current' style={styles.text4}/> 
+                <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text5} />
 
-          <TextInput placeholder = 'other' style={styles.text5}/>  
+                <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text6} />
 
-          <TextInput placeholder = 'other' style={styles.text6}/>
+                <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text7} />
 
-          <TextInput placeholder = 'other' style={styles.text7}/>
+                <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text8} />
 
-          <TextInput placeholder = 'other' style={styles.text8}/>
-
-          </ImageBackground>
-
-        </ImageBackground>
+              </ScrollView>
+            </ImageBackground>
+          {/* </ImageBackground> */}
       </View>
+     </Provider>
     );
   }
 }
@@ -86,143 +107,144 @@ export default class mainPage extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#7098d8"
+    width: null,
+    height: null
   },
   text1: {
-    
-    marginTop: 30,
+    // marginTop: 30,
     marginBottom: 20,
-    marginRight: -5,
-    height: 60,
-    width: 60, 
-     borderColor: 'black', 
-     borderWidth: 1,
-     borderRadius: 50,
-      textAlign:'center',
-      justifyContent: 'center',
-      alignSelf: 'center',
-      fontSize: 16,
-      flexWrap: 'wrap',
+    // marginRight: -100,
+
+    height: 100,
+    width: 150,
+    borderColor: "black",
+    borderWidth: 1,
+    borderRadius: 50,
+    textAlign: "center",
+    justifyContent: "center",
+    alignSelf: "center",
+    fontSize: 16,
+    flexWrap: "wrap"
   },
   text2: {
     marginBottom: 20,
-    marginRight: -5,
-    height: 60,
-    width: 60, 
-   borderColor: 'black', 
-   borderWidth: 1,
-   borderRadius: 50,
-    textAlign:'center',
-    justifyContent: 'center',
-    alignSelf: 'center',
+    // marginRight: -100,
+
+    height: 100,
+    width: 150,
+    borderColor: "black",
+    borderWidth: 1,
+    borderRadius: 50,
+    textAlign: "center",
+    justifyContent: "center",
+    alignSelf: "center",
     fontSize: 16,
-    flexWrap: 'wrap',
+    flexWrap: "wrap"
   },
   text3: {
     marginBottom: 20,
-    marginRight: -5,
-    height: 60,
-    width: 60, 
-   borderColor: 'black', 
-   borderWidth: 1,
-   borderRadius: 30,
-    textAlign:'center',
-    justifyContent: 'center',
-    alignSelf: 'center',
+    // marginRight: -100,
+
+    height: 100,
+    width: 150,
+    borderColor: "black",
+    borderWidth: 1,
+    borderRadius: 50,
+    textAlign: "center",
+    justifyContent: "center",
+    alignSelf: "center",
     fontSize: 16,
-    flexWrap: 'wrap',
+    flexWrap: "wrap"
   },
   text4: {
     marginBottom: 20,
-    marginRight: -5,
-    height: 60,
-    width: 60, 
-   borderColor: 'black', 
-   borderWidth: 1,
-   borderRadius: 50,
-    textAlign:'center',
-    justifyContent: 'center',
-    alignSelf: 'center',
+    // marginRight: -100,
+
+    height: 100,
+    width: 150,
+    borderColor: "black",
+    borderWidth: 1,
+    borderRadius: 50,
+    textAlign: "center",
+    justifyContent: "center",
+    alignSelf: "center",
     fontSize: 16,
-    flexWrap: 'wrap',
+    flexWrap: "wrap"
   },
   text5: {
     marginBottom: 20,
-    marginRight: -5,
-    height: 60,
-    width: 60, 
-   borderColor: 'black', 
-   borderWidth: 1,
-   borderRadius: 50,
-    textAlign:'center',
-    justifyContent: 'center',
-    alignSelf: 'center',
-    fontSize: 16,
-    flexWrap: 'wrap',
+    // marginRight: -100,
 
+    height: 100,
+    width: 150,
+    borderColor: "black",
+    borderWidth: 1,
+    borderRadius: 50,
+    textAlign: "center",
+    justifyContent: "center",
+    alignSelf: "center",
+    fontSize: 16,
+    flexWrap: "wrap"
   },
   text6: {
     marginBottom: 20,
-    marginRight: -5,
-    height: 60,
-    width: 60, 
-   borderColor: 'black', 
-   borderWidth: 1,
-   borderRadius: 50,
-    textAlign:'center',
-    justifyContent: 'center',
-    alignSelf: 'center',
-    fontSize: 16,
-    flexWrap: 'wrap',
+    // marginRight: -100,
 
+    height: 100,
+    width: 150,
+    borderColor: "black",
+    borderWidth: 1,
+    borderRadius: 50,
+    textAlign: "center",
+    justifyContent: "center",
+    alignSelf: "center",
+    fontSize: 16,
+    flexWrap: "wrap"
   },
   text7: {
     marginBottom: 20,
-    marginRight: -5,
-    height: 60,
-    width: 60, 
-   borderColor: 'black', 
-   borderWidth: 1,
-   borderRadius: 50,
-    textAlign:'center',
-    justifyContent: 'center',
-    alignSelf: 'center',
-    fontSize: 16,
-    flexWrap: 'wrap',
 
+
+    height: 100,
+    width: 150,
+    borderColor: "black",
+    borderWidth: 1,
+    borderRadius: 50,
+    textAlign: "center",
+    justifyContent: "center",
+    alignSelf: "center",
+    fontSize: 16,
+    flexWrap: "wrap"
   },
   text8: {
     marginBottom: 20,
-    marginRight: -5,
-    height: 60,
-    width: 60, 
-   borderColor: 'black', 
-   borderWidth: 1,
-   borderRadius: 50,
-    textAlign:'center',
-    justifyContent: 'center',
-    alignSelf: 'center',
-    fontSize: 16,
-    flexWrap: 'wrap',
 
+
+    height: 100,
+    width: 150,
+    borderColor: "black",
+    borderWidth: 1,
+    borderRadius: 50,
+    textAlign: "center",
+    justifyContent: "center",
+    alignSelf: "center",
+    fontSize: 16
+    // flexWrap: 'wrap',
   },
-  backgroundImage: {
-   
-    
-    height: 175,
-    width: 175,
-    alignItems: "center",
-    justifyContent: "center"
-  },
+  // backgroundImage: {
+
+  //   height: 50,
+  //   width: 50,
+  //   alignItems: "center",
+  //   justifyContent: "center"
+  // },
   backgroundImage2: {
-    
+
     opacity: .7,
-    marginRight: 300,
-    height: 700,
-    width: 80,
-    alignItems: "center",
-    justifyContent: "center"
+    marginRight: null,
+    height: null,
+    width: null,
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 });
