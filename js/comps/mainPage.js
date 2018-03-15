@@ -10,14 +10,16 @@ import {
 } from 'react-native';
 
 import storeFactory from '../../src/store';
+// import {
+//   addError,
+//   clearError,
+//   isFetching,
+//   notFetching,
+//   getAirTemp,
+//   getCur,
+// } from '../../src/actions'
+import * as fetching from '../../src/actions'
 import { connect } from 'react-redux'
-import {
-  addError,
-  clearError,
-  isFetching,
-  notFetching,
-  getAirTemp,
-} from '../../src/actions'
 import AirTempTest from "./airTempTest";
 import { Provider } from 'react-redux';
 import Geo from './geo';
@@ -29,7 +31,25 @@ const store = storeFactory();
 export default class mainPage extends Component{
   componentWillMount() {
     store.dispatch(
-      getAirTemp()
+      fetching.getAirTemp()
+    );
+    store.dispatch(
+      fetching.getCur()
+    );
+    store.dispatch(
+      fetching.getHeight()
+    );
+    store.dispatch(
+      fetching.getTide()
+    );
+    store.dispatch(
+      fetching.getVis()
+    );
+    store.dispatch(
+      fetching.getWaterTemp()
+    );
+    store.dispatch(
+      fetching.getWind()
     );
   }
 
@@ -50,16 +70,15 @@ export default class mainPage extends Component{
               source={require("./images/sideBar.jpg")}
               style={styles.backgroundImage2}
             >
+              <Geo/>
+              <AirTempTest/>
+                
               <ScrollView
               showsHorizontalScrollIndicator={false}
               showsVerticalScrollIndicator={false}
               style={{
               }}
               >
-                <AirTempTest/>
-
-                <Geo/>
-                
                 <TextInput editable={false} selectTextOnFocus={false} placeholder="52ºA" style={styles.text1} />
 
                 <TextInput editable={false} selectTextOnFocus={false} placeholder="48ºO" style={styles.text2} />
