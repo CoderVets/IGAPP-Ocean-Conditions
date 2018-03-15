@@ -8,13 +8,15 @@ import {
   TextInput
 } from "react-native";
 import storeFactory from '../../src/store';
-import {
-  addError,
-  clearError,
-  isFetching,
-  notFetching,
-  getAirTemp,
-} from '../../src/actions'
+// import {
+//   addError,
+//   clearError,
+//   isFetching,
+//   notFetching,
+//   getAirTemp,
+//   getCur,
+// } from '../../src/actions'
+import * as fetching from '../../src/actions'
 
 const store = storeFactory()
 
@@ -23,7 +25,25 @@ export default class mainPage extends Component {
   //this is to test that the store is working
   componentWillMount() {
     store.dispatch(
-      getAirTemp()
+      fetching.getAirTemp()
+    );
+    store.dispatch(
+      fetching.getCur()
+    );
+    store.dispatch(
+      fetching.getHeight()
+    );
+    store.dispatch(
+      fetching.getTide()
+    );
+    store.dispatch(
+      fetching.getVis()
+    );
+    store.dispatch(
+      fetching.getWaterTemp()
+    );
+    store.dispatch(
+      fetching.getWind()
     );
   }
 
