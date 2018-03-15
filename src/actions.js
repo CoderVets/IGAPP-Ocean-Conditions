@@ -20,6 +20,25 @@ export const notFetching = () => ({
   type: C.CANCEL_FETCHING,
 })
 
+// export function getGeo(latitude, longitude, error) {
+//   return {
+//     type: GET_LOC,
+//     payload: {
+//       watchId = navigator.geolocation.watchPosition(
+//         (position) => ({
+//             latitude: position.coords.latitude,
+//             longitude: position.coords.longitude,
+//             error: null,
+//           }),
+        
+//         (error) => this.setState({ error: error.message }),
+//         { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000, distanceFilter: 10 },
+        
+//       )
+//     },
+//   };
+// }
+
 export const getAirTemp = () => dispatch => {
 
   dispatch({

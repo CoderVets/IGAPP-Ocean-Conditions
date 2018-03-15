@@ -22,7 +22,7 @@ import * as fetching from '../../src/actions'
 import { connect } from 'react-redux'
 import AirTempTest from "./airTempTest";
 import { Provider } from 'react-redux';
-
+import Geo from './geo';
 //import SplashScreen from 'react-native-splash-screen'
 
 const store = storeFactory();
@@ -53,9 +53,9 @@ export default class mainPage extends Component{
     );
   }
 
-  componentDidMount() {
-    SplashScreen.hide();
-  }
+  // componentDidMount() {
+  //   SplashScreen.hide();
+  // }
 
   render() {
     
@@ -70,6 +70,7 @@ export default class mainPage extends Component{
               source={require("./images/sideBar.jpg")}
               style={styles.backgroundImage2}
             >
+              <Geo/>
               <AirTempTest/>
                 
               <ScrollView
@@ -78,8 +79,7 @@ export default class mainPage extends Component{
               style={{
               }}
               >
-               
-                <TextInput editable={false} selectTextOnFocus={false} placeholder="52ºA" style={styles.text1}>{airTemp}</TextInput>
+                <TextInput editable={false} selectTextOnFocus={false} placeholder="52ºA" style={styles.text1} />
 
                 <TextInput editable={false} selectTextOnFocus={false} placeholder="48ºO" style={styles.text2} />
 
