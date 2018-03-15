@@ -20,7 +20,8 @@ import {
 } from '../../src/actions'
 import AirTempTest from "./airTempTest";
 import { Provider } from 'react-redux';
-import SplashScreen from 'react-native-splash-screen'
+import Geo from './geo';
+//import SplashScreen from 'react-native-splash-screen'
 
 const store = storeFactory();
 
@@ -32,9 +33,9 @@ export default class mainPage extends Component{
     );
   }
 
-  componentDidMount() {
-    SplashScreen.hide();
-  }
+  // componentDidMount() {
+  //   SplashScreen.hide();
+  // }
 
   render() {
     
@@ -56,6 +57,8 @@ export default class mainPage extends Component{
               }}
               >
                 <AirTempTest/>
+
+                <Geo/>
                 
                 <TextInput editable={false} selectTextOnFocus={false} placeholder="52ºA" style={styles.text1} />
 
