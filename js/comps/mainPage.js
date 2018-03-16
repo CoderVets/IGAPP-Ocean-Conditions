@@ -20,13 +20,15 @@ import storeFactory from '../../src/store';
 // } from '../../src/actions'
 import * as fetching from '../../src/actions'
 import { connect } from 'react-redux'
-import AirTempTest from "./airTempTest";
+import AirTempTest, {airTemp} from "./airTempTest";
 import { Provider } from 'react-redux';
 import Geo from './geo';
+import Watertemp from './waterTemp'
 //import SplashScreen from 'react-native-splash-screen'
 
 const store = storeFactory();
-
+var storeprops = {airTemp}
+console.log("Store props = "+storeprops)
 
 export default class mainPage extends Component{
   componentWillMount() {
@@ -70,8 +72,9 @@ export default class mainPage extends Component{
               source={require("./images/sideBar.jpg")}
               style={styles.backgroundImage2}
             >
-              <Geo/>
+              {/* <Geo/>
               <AirTempTest/>
+              <Watertemp/> */}
                 
               <ScrollView
               showsHorizontalScrollIndicator={false}
@@ -79,7 +82,10 @@ export default class mainPage extends Component{
               style={{
               }}
               >
-                <TextInput editable={false} selectTextOnFocus={false} placeholder="52ºA" style={styles.text1} />
+                <Geo/>
+                <AirTempTest/>
+                <Watertemp/>
+                <Text editable={false} selectTextOnFocus={false} placeholder="52ºA" style={styles.text1}> {airTemp}</Text >
 
                 <TextInput editable={false} selectTextOnFocus={false} placeholder="48ºO" style={styles.text2} />
 
