@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Platform,
   StyleSheet,
   Text,
   View,
   ImageBackground,
+  Image,
   TextInput,
   ScrollView
-} from 'react-native';
+} from "react-native";
 
-import storeFactory from '../../src/store';
+import storeFactory from "../../src/store";
 // import {
 //   addError,
 //   clearError,
@@ -18,41 +19,27 @@ import storeFactory from '../../src/store';
 //   getAirTemp,
 //   getCur,
 // } from '../../src/actions'
-import * as fetching from '../../src/actions'
-import { connect } from 'react-redux'
-import AirTempTest, {airTemp} from "./airTempTest";
-import { Provider } from 'react-redux';
-import Geo from './geo';
-import Watertemp from './waterTemp'
+import * as fetching from "../../src/actions";
+import { connect } from "react-redux";
+import AirTempTest, { airTemp } from "./airTempTest";
+import { Provider } from "react-redux";
+import Geo from "./geo";
+import Watertemp from "./waterTemp";
 //import SplashScreen from 'react-native-splash-screen'
 
 const store = storeFactory();
-var storeprops = {airTemp}
-console.log("Store props = "+storeprops)
+var storeprops = { airTemp };
+console.log("Store props = " + storeprops);
 
-export default class mainPage extends Component{
+export default class mainPage extends Component {
   componentWillMount() {
-    store.dispatch(
-      fetching.getAirTemp()
-    );
-    store.dispatch(
-      fetching.getCur()
-    );
-    store.dispatch(
-      fetching.getHeight()
-    );
-    store.dispatch(
-      fetching.getTide()
-    );
-    store.dispatch(
-      fetching.getVis()
-    );
-    store.dispatch(
-      fetching.getWaterTemp()
-    );
-    store.dispatch(
-      fetching.getWind()
-    );
+    store.dispatch(fetching.getAirTemp());
+    store.dispatch(fetching.getCur());
+    store.dispatch(fetching.getHeight());
+    store.dispatch(fetching.getTide());
+    store.dispatch(fetching.getVis());
+    store.dispatch(fetching.getWaterTemp());
+    store.dispatch(fetching.getWind());
   }
 
   // componentDidMount() {
@@ -60,7 +47,6 @@ export default class mainPage extends Component{
   // }
 
   render() {
-    
     return (
       <Provider store={store}>
         <View style={styles.container}>
@@ -68,44 +54,48 @@ export default class mainPage extends Component{
             source={require("./images/Compass.png")}
             style={styles.backgroundImage}
           > */}
-            <ImageBackground
-              source={require("./images/sideBar.jpg")}
-              style={styles.backgroundImage2}
-            >
-              {/* <Geo/>
-              <AirTempTest/>
-              <Watertemp/> */}
-                
-              <ScrollView
+          <ImageBackground
+            source={require("./images/background.jpeg")}
+            style={styles.backgroundImage2}
+          >
+            <Geo />
+
+            <ScrollView
               showsHorizontalScrollIndicator={false}
               showsVerticalScrollIndicator={false}
-              style={{
-              }}
+              style={{ marginTop: 20, flex: 1, }}
+            >
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: 100,
+                  marginLeft: 20,
+                  fontSize: 24
+                }}
               >
-                <Geo/>
-                <AirTempTest/>
-                <Watertemp/>
-                <Text editable={false} selectTextOnFocus={false} placeholder="52ºA" style={styles.text1}> {airTemp}</Text >
-
-                <TextInput editable={false} selectTextOnFocus={false} placeholder="48ºO" style={styles.text2} />
-
-                <TextInput editable={false} selectTextOnFocus={false} placeholder="W/S" style={styles.text3} />
-
-                <TextInput editable={false} selectTextOnFocus={false} placeholder="Current" style={styles.text4} />
-
-                <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text5} />
-
-                <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text6} />
-
-                <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text7} />
-
-                <TextInput editable={false} selectTextOnFocus={false} placeholder="other" style={styles.text8} />
-
-              </ScrollView>
-            </ImageBackground>
-          {/* </ImageBackground> */}
-      </View>
-     </Provider>
+                Air Temperature
+              </Text>
+              <AirTempTest />
+              <Text
+                style={{
+                  
+                  fontWeight: "bold",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: 40,
+                  
+                  fontSize: 24
+                }}
+              >
+                Water Temperature
+              </Text>
+              <Watertemp />
+            </ScrollView>
+          </ImageBackground>
+        </View>
+      </Provider>
     );
   }
 }
@@ -113,144 +103,17 @@ export default class mainPage extends Component{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     width: null,
     height: null
   },
-  text1: {
-    // marginTop: 30,
-    marginBottom: 20,
-    // marginRight: -100,
-
-    height: 100,
-    width: 150,
-    borderColor: "black",
-    borderWidth: 1,
-    borderRadius: 50,
-    textAlign: "center",
-    justifyContent: "center",
-    alignSelf: "center",
-    fontSize: 16,
-    flexWrap: "wrap"
-  },
-  text2: {
-    marginBottom: 20,
-    // marginRight: -100,
-
-    height: 100,
-    width: 150,
-    borderColor: "black",
-    borderWidth: 1,
-    borderRadius: 50,
-    textAlign: "center",
-    justifyContent: "center",
-    alignSelf: "center",
-    fontSize: 16,
-    flexWrap: "wrap"
-  },
-  text3: {
-    marginBottom: 20,
-    // marginRight: -100,
-
-    height: 100,
-    width: 150,
-    borderColor: "black",
-    borderWidth: 1,
-    borderRadius: 50,
-    textAlign: "center",
-    justifyContent: "center",
-    alignSelf: "center",
-    fontSize: 16,
-    flexWrap: "wrap"
-  },
-  text4: {
-    marginBottom: 20,
-    // marginRight: -100,
-
-    height: 100,
-    width: 150,
-    borderColor: "black",
-    borderWidth: 1,
-    borderRadius: 50,
-    textAlign: "center",
-    justifyContent: "center",
-    alignSelf: "center",
-    fontSize: 16,
-    flexWrap: "wrap"
-  },
-  text5: {
-    marginBottom: 20,
-    // marginRight: -100,
-
-    height: 100,
-    width: 150,
-    borderColor: "black",
-    borderWidth: 1,
-    borderRadius: 50,
-    textAlign: "center",
-    justifyContent: "center",
-    alignSelf: "center",
-    fontSize: 16,
-    flexWrap: "wrap"
-  },
-  text6: {
-    marginBottom: 20,
-    // marginRight: -100,
-
-    height: 100,
-    width: 150,
-    borderColor: "black",
-    borderWidth: 1,
-    borderRadius: 50,
-    textAlign: "center",
-    justifyContent: "center",
-    alignSelf: "center",
-    fontSize: 16,
-    flexWrap: "wrap"
-  },
-  text7: {
-    marginBottom: 20,
-
-
-    height: 100,
-    width: 150,
-    borderColor: "black",
-    borderWidth: 1,
-    borderRadius: 50,
-    textAlign: "center",
-    justifyContent: "center",
-    alignSelf: "center",
-    fontSize: 16,
-    flexWrap: "wrap"
-  },
-  text8: {
-    marginBottom: 20,
-
-
-    height: 100,
-    width: 150,
-    borderColor: "black",
-    borderWidth: 1,
-    borderRadius: 50,
-    textAlign: "center",
-    justifyContent: "center",
-    alignSelf: "center",
-    fontSize: 16
-    // flexWrap: 'wrap',
-  },
-  // backgroundImage: {
-
-  //   height: 50,
-  //   width: 50,
-  //   alignItems: "center",
-  //   justifyContent: "center"
-  // },
   backgroundImage2: {
+    flex: 1,
 
-    opacity: .7,
-    marginRight: null,
-    height: null,
     width: null,
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: null,
+    opacity: 0.9,
+    alignItems: "center",
+    justifyContent: "center"
   }
 });

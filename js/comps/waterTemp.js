@@ -1,43 +1,65 @@
-import React from 'react'
+import React from "react";
 import {
   View,
   Text,
   StyleSheet,
   ActivityIndicator,
-} from 'react-native'
-import { connect } from 'react-redux'
-import findElement from '../findElement'
+  ImageBackground
+} from "react-native";
+import { connect } from "react-redux";
+import findElement from "../findElement";
 
-const AirTempTest = (props) => {
+const AirTempTest = props => {
   var airTemp = findElement(props.waterTemp[0], '"sea_water_temperature (F)"');
   if (props.fetching) {
     return (
       <View>
-        <ActivityIndicator/>
+        <ActivityIndicator />
       </View>
-    )
+    );
   }
   return (
     <View style={styles.container}>
-      <Text>Water Temp = {airTemp}ºF</Text>
+      <ImageBackground
+        source={require("./images/textBackground.jpg")}
+        style={styles.backgroundImage}
+      >
+        <Text style={styles.text}>{airTemp}ºF</Text>
+      </ImageBackground>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: null,
+    height: null
+  },
+  text: {
+    fontWeight: "bold",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#7098d8"
+    // marginTop: 15,
+    // marginRight: 15,
+    fontSize: 20
   },
-})
+  backgroundImage: {
+    flex: 1,
 
-const mapStateToProps = (state) => {
-	return {
-		waterTemp: state.waterTemp,
-		fetching: state.fetching,
-	}
-}
+    width: null,
+    height: null,
+    opacity: 0.8,
+    alignItems: "center",
+    justifyContent: "center"
+  }
+});
 
-export default connect(mapStateToProps)(AirTempTest)
+const mapStateToProps = state => {
+  return {
+    waterTemp: state.waterTemp,
+    fetching: state.fetching
+  };
+};
+
+export default connect(mapStateToProps)(AirTempTest);
