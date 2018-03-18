@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   ActivityIndicator,
+  ImageBackground
 } from 'react-native'
 import { connect } from 'react-redux'
 import findElement from '../findElement'
@@ -19,7 +20,12 @@ const CurrentSpeed = (props) => {
   }
   return (
     <View style={styles.container}>
-      <Text>Current Speed = {currentSpeed}</Text>
+    <ImageBackground
+            source={require("./images/textBackground.jpg")}
+            style={styles.backgroundImage}
+          >
+      <Text style={styles.text}>{currentSpeed}Kn</Text>
+      </ImageBackground>
     </View>
   )
 }
@@ -27,11 +33,28 @@ const CurrentSpeed = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    width: null,
+    height: null,
+  },
+  text: {
+    fontWeight: 'bold',
+    justifyContent: "flex-end",
     alignItems: "center",
-    backgroundColor: "#7098d8"
+    // marginBottom: 15,
+    fontSize: 20
+    
+  },
+  backgroundImage: {
+    flex: 1,
+
+    width: null,
+    height: null,
+    opacity: 0.8,
+    alignItems: "center",
+    justifyContent: "center"
   },
 })
+
 
 const mapStateToProps = (state) => {
 	return {
