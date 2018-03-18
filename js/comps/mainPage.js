@@ -26,6 +26,10 @@ import AirTempTest, {airTemp} from "./airTempTest";
 import { Provider } from 'react-redux';
 import Geo from './geo';
 import Watertemp from './waterTemp'
+import DispalyVis from './visibility'
+import WindDir from './windDirection'
+import WindSpeed from './windSpeed'
+import WindGust from './windGust'
 import CurrentSpeed from './currentSpeed'
 import CurrentDirection from './currentDirection'
 import SurfaceHeight from './surfaceHeight'
@@ -55,6 +59,7 @@ export default class mainPage extends Component {
   render() {
     return <Provider store={store}>
         <View style={styles.container}>
+
           <ImageBackground source={require("./images/background.jpeg")} style={styles.backgroundImage2}>
             <Geo />
 
@@ -98,6 +103,7 @@ export default class mainPage extends Component {
           </ImageBackground>
         </View>
       </Provider>;
+
   }
 }
 

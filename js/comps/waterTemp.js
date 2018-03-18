@@ -10,10 +10,11 @@ import { connect } from "react-redux";
 import findElement from "../findElement";
 
 
-const WaterTemp = (props) => {
+const watertemp = (props) => {
   var waterTemp = findElement(props.waterTemp[0], '"sea_water_temperature (F)"');
 
-  if (props.fetching) {
+  if (props.fetchingWT) {
+
     return (
       <View>
         <ActivityIndicator />
@@ -67,5 +68,12 @@ const mapStateToProps = state => {
 };
 
 
-export default connect(mapStateToProps)(WaterTemp)
 
+const mapStateToProps = (state) => {
+	return {
+		waterTemp: state.waterTemp,
+		fetchingWT: state.fetchingWT,
+	}
+}
+
+export default connect(mapStateToProps)(watertemp)

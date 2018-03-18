@@ -11,7 +11,7 @@ import findElement from '../findElement'
 
 const AirTempTest = (props) => {
   var airTemp = findElement(props.airTemp[0], '"air_temperature (F)"');
-  if (props.fetching) {
+  if (props.fetchingAT) {
     return (
       <View>
         <ActivityIndicator/>
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
 	return {
 		airTemp: state.airTemp,
-		fetching: state.fetching,
+		fetchingAT: state.fetchingAT,
 	}
 }
 
