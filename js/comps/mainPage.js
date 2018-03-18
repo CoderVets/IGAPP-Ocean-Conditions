@@ -59,10 +59,12 @@ export default class mainPage extends Component {
             <Geo />
 
             <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false} style={{ marginTop: 20, flex: 1 }}>
+
               <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 100, marginLeft: 20, fontSize: 24 }}>
                 Air Temperature
               </Text>
               <AirTempTest />
+              
               <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 40,
                   fontSize: 24 }}>
                 Water Temperature

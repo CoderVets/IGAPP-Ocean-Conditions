@@ -24,7 +24,7 @@ const CurrentSpeed = (props) => {
             source={require("./images/textBackground.jpg")}
             style={styles.backgroundImage}
           >
-      <Text style={styles.text}>{currentSpeed}</Text>
+      <Text style={styles.text}>{currentSpeed}Kn</Text>
       </ImageBackground>
     </View>
   )

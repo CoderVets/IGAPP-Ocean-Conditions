@@ -24,7 +24,7 @@ const CurrentDirection = (props) => {
             source={require("./images/textBackground.jpg")}
             style={styles.backgroundImage}
           >
-      <Text style={styles.text}>{currentDirection}</Text>
+      <Text style={styles.text}>{currentDirection}º</Text>
       </ImageBackground>
     </View>
   )

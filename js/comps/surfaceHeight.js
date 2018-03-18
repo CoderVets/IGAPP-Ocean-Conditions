@@ -38,9 +38,9 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 'bold',
-    justifyContent: "flex-end",
+    justifyContent: "center",
     alignItems: "center",
-    // marginBottom: 15,
+    // marginRight: 15,
     fontSize: 20
     
   },
