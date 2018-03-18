@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { Component } from "react";
+import { View, Text, StyleSheet } from "react-native";
 
 class Geo extends Component {
   constructor(props) {
@@ -8,21 +8,26 @@ class Geo extends Component {
     this.state = {
       latitude: null,
       longitude: null,
-      error: null,
+      error: null
     };
   }
 
   componentDidMount() {
     this.watchId = navigator.geolocation.watchPosition(
-      (position) => {
+      position => {
         this.setState({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
-          error: null,
+          error: null
         });
       },
-      (error) => this.setState({ error: error.message }),
-      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000, distanceFilter: 10 },
+      error => this.setState({ error: error.message }),
+      {
+        enableHighAccuracy: true,
+        timeout: 20000,
+        maximumAge: 1000,
+        distanceFilter: 10
+      }
     );
   }
 
@@ -32,9 +37,15 @@ class Geo extends Component {
 
   render() {
     return (
-      <View style={{ flexGrow: 0, alignItems: 'center', justifyContent: 'center',
-      height: 75, }}>
-        <Text style={styles.bodyText}> You are here </Text>
+      <View
+        style={{
+          flexGrow: 0,
+          alignItems: "center",
+          justifyContent: "center",
+          height: 75
+        }}
+      >
+        <Text style={styles.bodyText}> Current Location: </Text>
         <Text>Latitude: {this.state.latitude}</Text>
         <Text>Longitude: {this.state.longitude}</Text>
         {this.state.error ? <Text>Error: {this.state.error}</Text> : null}
@@ -44,9 +55,11 @@ class Geo extends Component {
 }
 
 const styles = StyleSheet.create({
-    bodyText: {
-      fontSize: 20,
-      fontWeight: 'bold', },
+  bodyText: {
+    marginTop: 70,
+    fontSize: 20,
+    fontWeight: "bold"
+  }
 });
 
 module.exports = Geo;
