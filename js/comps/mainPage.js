@@ -24,6 +24,10 @@ import AirTempTest, {airTemp} from "./airTempTest";
 import { Provider } from 'react-redux';
 import Geo from './geo';
 import Watertemp from './waterTemp'
+import CurrentSpeed from './currentSpeed'
+import CurrentDirection from './currentDirection'
+import SurfaceHeight from './surfaceHeight'
+import OceanTide from './oceanTide'
 //import SplashScreen from 'react-native-splash-screen'
 
 const store = storeFactory();
@@ -85,6 +89,10 @@ export default class mainPage extends Component{
                 <Geo/>
                 <AirTempTest/>
                 <Watertemp/>
+                <CurrentSpeed/>
+                <CurrentDirection/>
+                <SurfaceHeight/>
+                <OceanTide/>
                 <Text editable={false} selectTextOnFocus={false} placeholder="52ºA" style={styles.text1}> {airTemp}</Text >
 
                 <TextInput editable={false} selectTextOnFocus={false} placeholder="48ºO" style={styles.text2} />
