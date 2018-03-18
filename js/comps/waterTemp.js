@@ -60,12 +60,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = state => {
-  return {
-    waterTemp: state.waterTemp,
-    fetching: state.fetching
-  };
-};
+
 
 
 

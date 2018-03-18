@@ -20,20 +20,22 @@ import storeFactory from "../../src/store";
 //   getCur,
 // } from '../../src/actions'
 
-import * as fetching from '../../src/actions'
-import { connect } from 'react-redux'
-import AirTempTest, {airTemp} from "./airTempTest";
-import { Provider } from 'react-redux';
-import Geo from './geo';
-import Watertemp from './waterTemp'
-import DispalyVis from './visibility'
-import WindDir from './windDirection'
-import WindSpeed from './windSpeed'
-import WindGust from './windGust'
-import CurrentSpeed from './currentSpeed'
-import CurrentDirection from './currentDirection'
-import SurfaceHeight from './surfaceHeight'
-import OceanTide from './oceanTide'
+import * as fetching from "../../src/actions";
+import { connect } from "react-redux";
+import { Provider } from "react-redux";
+
+import Geo from "./geo";
+
+import AirTempTest, { airTemp } from "./airTempTest";
+import Watertemp from "./waterTemp";
+import CurrentSpeed from "./currentSpeed";
+import CurrentDirection from "./currentDirection";
+import SurfaceHeight from "./surfaceHeight";
+import OceanTide from "./oceanTide";
+import DispalyVis from "./visibility";
+import WindDir from "./windDirection";
+import WindSpeed from "./windSpeed";
+import WindGust from "./windGust";
 
 //import SplashScreen from 'react-native-splash-screen'
 
@@ -57,53 +59,164 @@ export default class mainPage extends Component {
   // }
 
   render() {
-    return <Provider store={store}>
+    return (
+      <Provider store={store}>
         <View style={styles.container}>
-
-          <ImageBackground source={require("./images/background.jpeg")} style={styles.backgroundImage2}>
+          <ImageBackground
+            source={require("./images/background.jpeg")}
+            style={styles.backgroundImage2}
+          >
             <Geo />
 
-            <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false} style={{ marginTop: 20, flex: 1 }}>
-
-              <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 100, marginLeft: 20, fontSize: 24 }}>
+            <ScrollView
+              showsHorizontalScrollIndicator={false}
+              showsVerticalScrollIndicator={false}
+              style={{ flex: 1, marginTop: 40, marginBottom: 40 }}
+            >
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: 100,
+                  marginLeft: 20,
+                  fontSize: 24
+                }}
+              >
                 Air Temperature
               </Text>
               <AirTempTest />
 
-              <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 40,
-                  fontSize: 24, }}>
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: 40,
+                  fontSize: 24
+                }}
+              >
                 Water Temperature
               </Text>
-              <Watertemp/>
+              <Watertemp />
 
-                <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 40,
-                  fontSize: 24, marginLeft: 25, }}>
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: 40,
+                  fontSize: 24,
+                  marginLeft: 25
+                }}
+              >
                 CurrentSpeed
               </Text>
-              <CurrentSpeed/>
+              <CurrentSpeed />
 
-                <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 40,
-                  fontSize: 24, marginLeft: 12, }}>
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: 40,
+                  fontSize: 24,
+                  marginLeft: 12
+                }}
+              >
                 CurrentDirection
               </Text>
-              <CurrentDirection/>
+              <CurrentDirection />
 
-                <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 40,
-                  fontSize: 24, marginLeft: 25, }}>
+              
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: 40,
+                  fontSize: 24,
+                  marginLeft: 45
+                }}
+              >
+                WindDir
+              </Text>
+              <WindDir />
+
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: 40,
+                  fontSize: 24,
+                  marginLeft: 45
+                }}
+              >
+                WindSpeed
+              </Text>
+              <WindSpeed />
+
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: 40,
+                  fontSize: 24,
+                  marginLeft: 45
+                }}
+              >
+                WindGust
+              </Text>
+              <WindGust />
+
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: 40,
+                  fontSize: 24,
+                  marginLeft: 45
+                }}
+              >
+                DispalyVis
+              </Text>
+              <DispalyVis />
+
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: 40,
+                  fontSize: 24,
+                  marginLeft: 25
+                }}
+              >
                 SurfaceHeight
               </Text>
-              <SurfaceHeight/>
+              <SurfaceHeight />
 
-                 <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 40,
-                  fontSize: 24, marginLeft: 45, }}>
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: 40,
+                  fontSize: 24,
+                  marginLeft: 45
+                }}
+              >
                 OceanTide
               </Text>
-              <OceanTide/>
+              <OceanTide />
             </ScrollView>
           </ImageBackground>
         </View>
-      </Provider>;
-
+      </Provider>
+    );
   }
 }
 
