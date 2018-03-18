@@ -5,10 +5,14 @@ export default urlMaker = (x) => {
   console.log(x)
   console.log('urlMaker ' + x)
 
-  var minLon = -83.2130
-  var minLat = 24.6220
-  var maxLon = -79.2710
-  var maxLat = 27.1220
+  // var minLon = -83.2130
+  // var minLat = 24.6220
+  // var maxLon = -79.2710
+  // var maxLat = 27.1220
+  var minLon = -72.00
+  var minLat = 41.0
+  var maxLon = -71.00
+  var maxLat = 42
   var startTime = '2018-03-09T00:00:00Z'
   var endTime = '2018-03-09T00:59:00Z'
 

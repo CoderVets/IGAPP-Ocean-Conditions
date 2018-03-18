@@ -8,9 +8,9 @@ import {
 import { connect } from 'react-redux'
 import findElement from '../findElement'
 
-const watertemp = (props) => {
-  var waterTemp = findElement(props.waterTemp[0], '"sea_water_temperature (F)"');
-  if (props.fetchingWT) {
+const displayVis = (props) => {
+  var vis = findElement(props.visibility[0], '"visibility (nautical miles)"');
+  if (props.fetchingVis) {
     return (
       <View>
         <ActivityIndicator/>
@@ -19,7 +19,7 @@ const watertemp = (props) => {
   }
   return (
     <View style={styles.container}>
-      <Text>Water Temp = {waterTemp}ºF</Text>
+      <Text>Visibility = {vis} Nautical Miles</Text>
     </View>
   )
 }
@@ -35,9 +35,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
 	return {
-		waterTemp: state.waterTemp,
-		fetchingWT: state.fetchingWT,
+		visibility: state.visibility,
+		fetchingVis: state.fetchingVis,
 	}
 }
 
-export default connect(mapStateToProps)(watertemp)
+export default connect(mapStateToProps)(displayVis)
