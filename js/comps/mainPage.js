@@ -28,6 +28,10 @@ import DispalyVis from './visibility'
 import WindDir from './windDirection'
 import WindSpeed from './windSpeed'
 import WindGust from './windGust'
+import CurrentSpeed from './currentSpeed'
+import CurrentDirection from './currentDirection'
+import SurfaceHeight from './surfaceHeight'
+import OceanTide from './oceanTide'
 //import SplashScreen from 'react-native-splash-screen'
 
 const store = storeFactory();
@@ -93,6 +97,10 @@ export default class mainPage extends Component{
                 <WindDir/>
                 <WindSpeed/>
                 <WindGust/>
+                <CurrentSpeed/>
+                <CurrentDirection/>
+                <SurfaceHeight/>
+                <OceanTide/>
                 <Text editable={false} selectTextOnFocus={false} placeholder="52ºA" style={styles.text1}> {airTemp}</Text >
 
                 <TextInput editable={false} selectTextOnFocus={false} placeholder="48ºO" style={styles.text2} />
