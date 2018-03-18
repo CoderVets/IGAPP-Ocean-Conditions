@@ -8,8 +8,8 @@ import {
 import { connect } from 'react-redux'
 import findElement from '../findElement'
 
-const WaterTemp = (props) => {
-  var waterTemp = findElement(props.waterTemp[0], '"sea_water_temperature (F)"');
+const OceanTide = (props) => {
+  var oceanTide = findElement(props.tide[0], '"sea_surface_height_amplitude_due_to_equilibrium_ocean_tide (feet)"');
   if (props.fetching) {
     return (
       <View>
@@ -19,7 +19,7 @@ const WaterTemp = (props) => {
   }
   return (
     <View style={styles.container}>
-      <Text>Water Temp = {waterTemp}ºF</Text>
+      <Text>Ocean Tide = {oceanTide}</Text>
     </View>
   )
 }
@@ -35,9 +35,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
 	return {
-		waterTemp: state.waterTemp,
+		tide: state.tide,
 		fetching: state.fetching,
 	}
 }
 
-export default connect(mapStateToProps)(WaterTemp)
+export default connect(mapStateToProps)(OceanTide)

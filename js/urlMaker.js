@@ -5,19 +5,22 @@ export default urlMaker = (x) => {
   console.log(x)
   console.log('urlMaker ' + x)
 
+
   var minLon = -83.2130
   var minLat = 24.6220
   var maxLon = -79.2710
   var maxLat = 27.1220
   var startTime = '2018-03-09T00:00:00Z'
   var endTime = '2018-03-09T00:59:00Z'
+  var datumLon = -71.4006
+  var datumLat = 41.8067
+  
 
   var urlStart = 'https://opendap.co-ops.nos.noaa.gov/ioos-dif-sos/SOS?service=SOS' +
                   '&request=GetObservation&version=1.0.0' +
                   '&responseFormat=text/csv' +
                   //'&eventTime=' + startTime + '/' + endTime +
                   '&featureOfInterest=BBOX:'+ minLon + ',' + minLat + ',' + maxLon + ',' + maxLat
-
   switch (x) {
     //case 'airTemp':
     case 0:
@@ -37,7 +40,7 @@ export default urlMaker = (x) => {
                     '&offering=urn:ioos:network:NOAA.NOS.CO-OPS:MetActive'
                     break
     //case 4:
-    case 3:
+    case 3: 
       var urlEnd = '&observedProperty=sea_water_speed&direction_of_sea_water_velocity' +
                     '&offering=urn:ioos:network:NOAA.NOS.CO-OPS:CurrentsActive' +
                     '&procedure=urn:ioos:network:NOAA.NOS.CO-OPS:CurrentsActive'
@@ -51,7 +54,8 @@ export default urlMaker = (x) => {
       var urlEnd = '&observedProperty=water_surface_height_above_reference_datum' +
                     '&offering=urn:ioos:network:NOAA.NOS.CO-OPS:WaterLevelActive' +
                     '&result=VerticalDatum%3D%3Durn:ioos:def:datum:noaa::CRD' +
-                    '&dataType=VerifiedSixMinute&unit=Feet'
+                    '&dataType=VerifiedSixMinute&unit=Feet'+ datumLon + ',' + datumLat
+       //var constType =  C.GET_WS_ABOVE_DATUM         
                     break
     case 6:
       var urlEnd = '&observedProperty=sea_surface_height_amplitude_due_to_equilibrium_ocean_tide' +
