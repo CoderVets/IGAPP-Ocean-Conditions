@@ -19,12 +19,18 @@ import storeFactory from "../../src/store";
 //   getAirTemp,
 //   getCur,
 // } from '../../src/actions'
-import * as fetching from "../../src/actions";
-import { connect } from "react-redux";
-import AirTempTest, { airTemp } from "./airTempTest";
-import { Provider } from "react-redux";
-import Geo from "./geo";
-import Watertemp from "./waterTemp";
+
+import * as fetching from '../../src/actions'
+import { connect } from 'react-redux'
+import AirTempTest, {airTemp} from "./airTempTest";
+import { Provider } from 'react-redux';
+import Geo from './geo';
+import Watertemp from './waterTemp'
+import CurrentSpeed from './currentSpeed'
+import CurrentDirection from './currentDirection'
+import SurfaceHeight from './surfaceHeight'
+import OceanTide from './oceanTide'
+
 //import SplashScreen from 'react-native-splash-screen'
 
 const store = storeFactory();
@@ -74,7 +80,7 @@ export default class mainPage extends Component {
                   marginLeft: 20,
                   fontSize: 24
                 }}
-              >
+
                 Air Temperature
               </Text>
               <AirTempTest />
@@ -96,6 +102,7 @@ export default class mainPage extends Component {
           </ImageBackground>
         </View>
       </Provider>
+
     );
   }
 }

@@ -9,8 +9,10 @@ import {
 import { connect } from "react-redux";
 import findElement from "../findElement";
 
-const AirTempTest = props => {
-  var airTemp = findElement(props.waterTemp[0], '"sea_water_temperature (F)"');
+
+const WaterTemp = (props) => {
+  var waterTemp = findElement(props.waterTemp[0], '"sea_water_temperature (F)"');
+
   if (props.fetching) {
     return (
       <View>
@@ -20,12 +22,14 @@ const AirTempTest = props => {
   }
   return (
     <View style={styles.container}>
+
       <ImageBackground
         source={require("./images/textBackground.jpg")}
         style={styles.backgroundImage}
       >
         <Text style={styles.text}>{airTemp}ºF</Text>
       </ImageBackground>
+
     </View>
   );
 };
@@ -62,4 +66,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(AirTempTest);
+
+export default connect(mapStateToProps)(WaterTemp)
+
