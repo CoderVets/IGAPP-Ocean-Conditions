@@ -53,57 +53,49 @@ export default class mainPage extends Component {
   // }
 
   render() {
-    return (
-      <Provider store={store}>
+    return <Provider store={store}>
         <View style={styles.container}>
-          {/* <ImageBackground
-            source={require("./images/Compass.png")}
-            style={styles.backgroundImage}
-          > */}
-          <ImageBackground
-            source={require("./images/background.jpeg")}
-            style={styles.backgroundImage2}
-          >
+          <ImageBackground source={require("./images/background.jpeg")} style={styles.backgroundImage2}>
             <Geo />
 
-            <ScrollView
-              showsHorizontalScrollIndicator={false}
-              showsVerticalScrollIndicator={false}
-              style={{ marginTop: 20, flex: 1, }}
-            >
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginTop: 100,
-                  marginLeft: 20,
-                  fontSize: 24
-                }}
-
+            <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false} style={{ marginTop: 20, flex: 1 }}>
+              <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 100, marginLeft: 20, fontSize: 24 }}>
                 Air Temperature
               </Text>
               <AirTempTest />
-              <Text
-                style={{
-                  
-                  fontWeight: "bold",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginTop: 40,
-                  
-                  fontSize: 24
-                }}
-              >
+              <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 40,
+                  fontSize: 24 }}>
                 Water Temperature
               </Text>
-              <Watertemp />
+              <Watertemp/>
+
+                <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 40,
+                  fontSize: 24 }}>
+                CurrentSpeed
+              </Text>
+              <CurrentSpeed/>
+
+                <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 40,
+                  fontSize: 24 }}>
+                CurrentDirection
+              </Text>
+              <CurrentDirection/>
+
+                <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 40,
+                  fontSize: 24 }}>
+                SurfaceHeight
+              </Text>
+              <SurfaceHeight/>
+
+                 <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 40,
+                  fontSize: 24 }}>
+                OceanTide
+              </Text>
+              <OceanTide/>
             </ScrollView>
           </ImageBackground>
         </View>
-      </Provider>
-
-    );
+      </Provider>;
   }
 }
 

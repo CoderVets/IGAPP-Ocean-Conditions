@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   ActivityIndicator,
+  ImageBackground
 } from 'react-native'
 import { connect } from 'react-redux'
 import findElement from '../findElement'
@@ -19,7 +20,12 @@ const OceanTide = (props) => {
   }
   return (
     <View style={styles.container}>
-      <Text>Ocean Tide = {oceanTide}</Text>
+    <ImageBackground
+            source={require("./images/textBackground.jpg")}
+            style={styles.backgroundImage}
+          >
+      <Text style={styles.text}>{oceanTide}</Text>
+      </ImageBackground>
     </View>
   )
 }
@@ -27,9 +33,25 @@ const OceanTide = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    width: null,
+    height: null,
+  },
+  text: {
+    fontWeight: 'bold',
+    justifyContent: "flex-end",
     alignItems: "center",
-    backgroundColor: "#7098d8"
+    // marginBottom: 15,
+    fontSize: 20
+    
+  },
+  backgroundImage: {
+    flex: 1,
+
+    width: null,
+    height: null,
+    opacity: 0.8,
+    alignItems: "center",
+    justifyContent: "center"
   },
 })
 

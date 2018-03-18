@@ -27,7 +27,7 @@ const WaterTemp = (props) => {
         source={require("./images/textBackground.jpg")}
         style={styles.backgroundImage}
       >
-        <Text style={styles.text}>{airTemp}ºF</Text>
+        <Text style={styles.text}>{waterTemp}ºF</Text>
       </ImageBackground>
 
     </View>
