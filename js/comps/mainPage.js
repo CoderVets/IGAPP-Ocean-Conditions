@@ -64,33 +64,33 @@ export default class mainPage extends Component {
                 Air Temperature
               </Text>
               <AirTempTest />
-              
+
               <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 40,
-                  fontSize: 24 }}>
+                  fontSize: 24, }}>
                 Water Temperature
               </Text>
               <Watertemp/>
 
                 <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 40,
-                  fontSize: 24 }}>
+                  fontSize: 24, marginLeft: 25, }}>
                 CurrentSpeed
               </Text>
               <CurrentSpeed/>
 
                 <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 40,
-                  fontSize: 24 }}>
+                  fontSize: 24, marginLeft: 12, }}>
                 CurrentDirection
               </Text>
               <CurrentDirection/>
 
                 <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 40,
-                  fontSize: 24 }}>
+                  fontSize: 24, marginLeft: 25, }}>
                 SurfaceHeight
               </Text>
               <SurfaceHeight/>
 
                  <Text style={{ fontWeight: "bold", justifyContent: "center", alignItems: "center", marginTop: 40,
-                  fontSize: 24 }}>
+                  fontSize: 24, marginLeft: 45, }}>
                 OceanTide
               </Text>
               <OceanTide/>
