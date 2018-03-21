@@ -22,12 +22,9 @@ const windGust = (props) => {
 
 return (
   <View style={styles.container}>
-  <ImageBackground
-          source={require("./images/textBackground.jpg")}
-          style={styles.backgroundImage}
-        >
+  
     <Text style={styles.text}> {windGst}MPH</Text>
-    </ImageBackground>
+    
   </View>
 )
 }
@@ -46,15 +43,7 @@ text: {
   fontSize: 20
   
 },
-backgroundImage: {
-  flex: 1,
 
-  width: null,
-  height: null,
-  opacity: 0.8,
-  alignItems: "center",
-  justifyContent: "center"
-},
 })
 const mapStateToProps = (state) => {
 	return {

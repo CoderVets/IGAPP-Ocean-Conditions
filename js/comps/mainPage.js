@@ -67,152 +67,74 @@ export default class mainPage extends Component {
             style={styles.backgroundImage2}
           >
             <Geo />
-
+            <View style={styles.container2}>
             <ScrollView
               showsHorizontalScrollIndicator={false}
               showsVerticalScrollIndicator={false}
-              style={{ flex: 1, marginTop: 40, marginBottom: 40 }}
+              style={{ flex: 1, marginTop: 40, marginBottom: 40, 
+              }}
             >
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginTop: 100,
-                  marginLeft: 20,
-                  fontSize: 24
-                }}
-              >
-                Air Temperature
-              </Text>
-              <AirTempTest />
 
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginTop: 40,
-                  fontSize: 24
-                }}
-              >
-                Water Temperature
-              </Text>
+           <Image
+            source={require("./images/airTemp.png")}
+            style={styles.backgroundImage}/>
+         
+            <AirTempTest style={{ flexDirection: 'row'}}/>
+        
+
+             <Image
+            source={require("./images/waterTemp.png")}
+            style={styles.backgroundImage}/>
+           
               <Watertemp />
+              
 
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginTop: 40,
-                  fontSize: 24,
-                  marginLeft: 25
-                }}
-              >
-                CurrentSpeed
-              </Text>
+              <Image
+            source={require("./images/currentSpeed.png")}
+            style={styles.backgroundImage}/>
               <CurrentSpeed />
 
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginTop: 40,
-                  fontSize: 24,
-                  marginLeft: 12
-                }}
-              >
-                CurrentDirection
-              </Text>
+              <Image
+            source={require("./images/currentDir.png")}
+            style={styles.backgroundImage}/>
               <CurrentDirection />
-
               
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginTop: 40,
-                  fontSize: 24,
-                  marginLeft: 45
-                }}
-              >
-                WindDir
-              </Text>
+ 
+              <Image
+            source={require("./images/windDir.png")}
+            style={styles.backgroundImage}/>
               <WindDir />
 
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginTop: 40,
-                  fontSize: 24,
-                  marginLeft: 45
-                }}
-              >
-                WindSpeed
-              </Text>
+              <Image
+            source={require("./images/windSpeed.png")}
+            style={styles.backgroundImage}/>
               <WindSpeed />
-
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginTop: 40,
-                  fontSize: 24,
-                  marginLeft: 45
-                }}
-              >
-                WindGust
-              </Text>
+              
+ 
+              <Image
+            source={require("./images/windGust.png")}
+            style={styles.backgroundImage}/>
               <WindGust />
 
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginTop: 40,
-                  fontSize: 24,
-                  marginLeft: 45
-                }}
-              >
-                DispalyVis
-              </Text>
+              <Image
+            source={require("./images/vis.png")}
+            style={styles.backgroundImage}/>
               <DispalyVis />
+              
 
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginTop: 40,
-                  fontSize: 24,
-                  marginLeft: 25
-                }}
-              >
-                SurfaceHeight
-              </Text>
+              <Image
+            source={require("./images/surfaceHeight.png")}
+            style={styles.backgroundImage}/>
               <SurfaceHeight />
 
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginTop: 40,
-                  fontSize: 24,
-                  marginLeft: 45
-                }}
-              >
-                OceanTide
-              </Text>
+             <Image
+            source={require("./images/oceanTide.png")}
+            style={styles.backgroundImage}/>
               <OceanTide />
+              
+
             </ScrollView>
+            </View>
           </ImageBackground>
         </View>
       </Provider>
@@ -223,17 +145,34 @@ export default class mainPage extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
-    width: null,
-    height: null
+    
+    
+   
   },
   backgroundImage2: {
     flex: 1,
-
     width: null,
     height: null,
     opacity: 0.9,
     alignItems: "center",
     justifyContent: "center"
-  }
+  },
+  backgroundImage: {
+   
+ marginTop: 30,
+    width: 100,
+    height: 100,
+    opacity: 0.8,
+    margin: 'auto',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  container2: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+   
+   
+  },
 });
