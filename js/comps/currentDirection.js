@@ -1,55 +1,56 @@
-import React from 'react'
+import React from "react";
 import {
   View,
   Text,
   StyleSheet,
   ActivityIndicator,
   ImageBackground
-} from 'react-native'
-import { connect } from 'react-redux'
-import findElement from '../findElement'
+} from "react-native";
+import { connect } from "react-redux";
+import findElement from "../findElement";
 
-const CurrentDirection = (props) => {
-  var currentDirection = findElement(props.currents[0], '"direction_of_sea_water_velocity (degree)"');
+const CurrentDirection = props => {
+  var currentDirection = findElement(
+    props.currents[0],
+    '"direction_of_sea_water_velocity (degree)"'
+  );
   if (props.fetching) {
     return (
       <View>
-        <ActivityIndicator/>
+        <ActivityIndicator />
       </View>
-    )
+    );
   }
   return (
     <View style={styles.container}>
-    
       <Text style={styles.text}>{currentDirection}º</Text>
-      
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: null,
-    height: null,
+    height: null
   },
   text: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     justifyContent: "flex-end",
     alignItems: "center",
-    // marginBottom: 15,
-    fontSize: 20
-    
-  },
-  
-})
+    marginTop: "auto",
+    marginBottom: "auto",
+    fontSize: 32,
+    color: "#0b0b0c",
+    paddingLeft: 30
+  }
+});
 
+const mapStateToProps = state => {
+  return {
+    currents: state.currents,
+    fetching: state.fetching
+  };
+};
 
-const mapStateToProps = (state) => {
-	return {
-		currents: state.currents,
-		fetching: state.fetching,
-	}
-}
-
-export default connect(mapStateToProps)(CurrentDirection)
+export default connect(mapStateToProps)(CurrentDirection);

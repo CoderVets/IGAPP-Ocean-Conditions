@@ -67,74 +67,91 @@ export default class mainPage extends Component {
             style={styles.backgroundImage2}
           >
             <Geo />
-            <View style={styles.container2}>
+
             <ScrollView
               showsHorizontalScrollIndicator={false}
               showsVerticalScrollIndicator={false}
-              style={{ flex: 1, marginTop: 40, marginBottom: 40, 
+              style={{
+                flexGrow: 1,
+                marginLeft: "50%",
+                marginTop: 40,
+                marginBottom: 40,
+                width: "100%"
               }}
             >
+              <View style={{ flexDirection: "row", paddingBottom: 40 }}>
+                <Image
+                  source={require("./images/airTemp.png")}
+                  style={styles.backgroundImage}
+                />
 
-           <Image
-            source={require("./images/airTemp.png")}
-            style={styles.backgroundImage}/>
-         
-            <AirTempTest style={{ flexDirection: 'row'}}/>
-        
+                <AirTempTest />
+              </View>
+              <View style={{ flexDirection: "row", paddingBottom: 40 }}>
+                <Image
+                  source={require("./images/waterTemp.png")}
+                  style={styles.backgroundImage}
+                />
 
-             <Image
-            source={require("./images/waterTemp.png")}
-            style={styles.backgroundImage}/>
-           
-              <Watertemp />
-              
-
-              <Image
-            source={require("./images/currentSpeed.png")}
-            style={styles.backgroundImage}/>
-              <CurrentSpeed />
-
-              <Image
-            source={require("./images/currentDir.png")}
-            style={styles.backgroundImage}/>
-              <CurrentDirection />
-              
- 
-              <Image
-            source={require("./images/windDir.png")}
-            style={styles.backgroundImage}/>
-              <WindDir />
-
-              <Image
-            source={require("./images/windSpeed.png")}
-            style={styles.backgroundImage}/>
-              <WindSpeed />
-              
- 
-              <Image
-            source={require("./images/windGust.png")}
-            style={styles.backgroundImage}/>
-              <WindGust />
-
-              <Image
-            source={require("./images/vis.png")}
-            style={styles.backgroundImage}/>
-              <DispalyVis />
-              
-
-              <Image
-            source={require("./images/surfaceHeight.png")}
-            style={styles.backgroundImage}/>
-              <SurfaceHeight />
-
-             <Image
-            source={require("./images/oceanTide.png")}
-            style={styles.backgroundImage}/>
-              <OceanTide />
-              
-
+                <Watertemp />
+              </View>
+              <View style={{ flexDirection: "row", paddingBottom: 40 }}>
+                <Image
+                  source={require("./images/currentSpeed.png")}
+                  style={styles.backgroundImage}
+                />
+                <CurrentSpeed />
+              </View>
+              <View style={{ flexDirection: "row", paddingBottom: 40 }}>
+                <Image
+                  source={require("./images/currentDir.png")}
+                  style={styles.backgroundImage}
+                />
+                <CurrentDirection />
+              </View>
+              <View style={{ flexDirection: "row", paddingBottom: 40 }}>
+                <Image
+                  source={require("./images/windDir.png")}
+                  style={styles.backgroundImage}
+                />
+                <WindDir />
+              </View>
+              <View style={{ flexDirection: "row", paddingBottom: 40 }}>
+                <Image
+                  source={require("./images/windSpeed.png")}
+                  style={styles.backgroundImage}
+                />
+                <WindSpeed />
+              </View>
+              <View style={{ flexDirection: "row", paddingBottom: 40 }}>
+                <Image
+                  source={require("./images/windGust.png")}
+                  style={styles.backgroundImage}
+                />
+                <WindGust />
+              </View>
+              <View style={{ flexDirection: "row", paddingBottom: 40 }}>
+                <Image
+                  source={require("./images/vis.png")}
+                  style={styles.backgroundImage}
+                />
+                <DispalyVis />
+              </View>
+              {/* <View style={{ flexDirection: "row" }}>
+                <Image
+                  source={require("./images/surfaceHeight.png")}
+                  style={styles.backgroundImage}
+                />
+                <SurfaceHeight />
+              </View>
+              <View style={{ flexDirection: "row" }}>
+                <Image
+                  source={require("./images/oceanTide.png")}
+                  style={styles.backgroundImage}
+                />
+                <OceanTide />
+              </View> */}
             </ScrollView>
-            </View>
           </ImageBackground>
         </View>
       </Provider>
@@ -144,10 +161,7 @@ export default class mainPage extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    
-    
-   
+    flex: 1
   },
   backgroundImage2: {
     flex: 1,
@@ -158,21 +172,12 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   backgroundImage: {
-   
- marginTop: 30,
+    marginTop: 30,
     width: 100,
     height: 100,
     opacity: 0.8,
-    margin: 'auto',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  container2: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-   
-   
-  },
+    margin: "auto",
+    justifyContent: "center",
+    alignItems: "center"
+  }
 });
