@@ -1,7 +1,11 @@
 import C from '../src/constants'
 import geo from './comps/geo'
-
-export default urlMaker = (x) => {
+import storeFactory from '../src/store'
+// import { connect } from 'react-redux'
+const store = storeFactory();
+console.log('urlMaker' + store.getState() + '*******')
+// const urlMaker = (x, props) => {
+export default urlMaker = (x, props) => {
   
   console.log(x)
   console.log('urlMaker ' + x)
@@ -12,18 +16,26 @@ export default urlMaker = (x) => {
 
   console.log('***********urlMaker********* ' +locLat)
 
-  // var minLon = -83.2130
-  // var minLat = 24.6220
-  // var maxLon = -79.2710
-  // var maxLat = 27.1220
-  var minLon = -72.00
-  var minLat = 41.0
-  var maxLon = -71.00
-  var maxLat = 42
-  var startTime = '2018-03-09T00:00:00Z'
-  var endTime = '2018-03-09T00:59:00Z'
+  var minLon = -83.2130
+  var minLat = 24.6220
+  var maxLon = -79.2710
+  var maxLat = 27.1220
   var datumLon = -71.4006
   var datumLat = 41.8067
+
+  // var minLon = datumLon - .05
+  // var minLat = datumLat - .03
+  // var maxLon = datumLon + .05
+  // var maxLat = datumLat + .03
+console.log('MinLong' + minLon + 'minLat' + minLat + 'maxLon' + maxLon + 'maxLat' + maxLat)
+  // var minLon = -72.00
+  // var minLat = 41.0
+  // var maxLon = -71.00
+  // var maxLat = 42
+  // var startTime = '2018-03-09T00:00:00Z'
+  // var endTime = '2018-03-09T00:59:00Z'
+  // var datumLon = -71.4006
+  // var datumLat = 41.8067
   
   var urlStart = 'https://opendap.co-ops.nos.noaa.gov/ioos-dif-sos/SOS?service=SOS' +
                   '&request=GetObservation&version=1.0.0' +
@@ -111,3 +123,12 @@ export default urlMaker = (x) => {
   //   dispType: constType,
   // })
 }
+
+// const mapStateToProps = (state) => {
+//   return {
+//       datumlat: state.getLocR.latitude,
+//       datumlon: state.getLocR.longitude,
+//   }
+// }
+
+// export default connect(mapStateToProps)(urlMaker)
