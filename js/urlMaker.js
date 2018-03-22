@@ -1,9 +1,16 @@
 import C from '../src/constants'
+import geo from './comps/geo'
 
 export default urlMaker = (x) => {
   
   console.log(x)
   console.log('urlMaker ' + x)
+  
+  const locLat = Object.assign({geo},geo.state,);
+
+  
+
+  console.log('***********urlMaker********* ' +locLat)
 
   // var minLon = -83.2130
   // var minLat = 24.6220
@@ -55,14 +62,14 @@ export default urlMaker = (x) => {
     case 5:
       var urlEnd = '&observedProperty=water_surface_height_above_reference_datum' +
                     '&offering=urn:ioos:network:NOAA.NOS.CO-OPS:WaterLevelActive' +
-                    '&result=VerticalDatum%3D%3Durn:ioos:def:datum:noaa::CRD' +
+                    '&result=VerticalDatum%3D%3Durn:ioos:def:datum:noaa::MLLW' +
                     '&dataType=VerifiedSixMinute&unit=Feet'+ datumLon + ',' + datumLat
        //var constType =  C.GET_WS_ABOVE_DATUM         
                     break
     case 6:
       var urlEnd = '&observedProperty=sea_surface_height_amplitude_due_to_equilibrium_ocean_tide' +
                     '&offering=urn:ioos:network:NOAA.NOS.CO-OPS:WaterLevelActive' +
-                    '&result=VerticalDatum%3D%3Durn:ioos:def:datum:noaa::CRD' +
+                    '&result=VerticalDatum%3D%3Durn:ioos:def:datum:noaa::MLLW' +
                     '&dataType=SixMinuteTidePredictions' +
                     '&unit=Feet'
                     break

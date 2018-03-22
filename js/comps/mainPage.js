@@ -36,6 +36,7 @@ import DispalyVis from "./visibility";
 import WindDir from "./windDirection";
 import WindSpeed from "./windSpeed";
 import WindGust from "./windGust";
+import { getPosition } from 'redux-effects-geolocation';
 
 //import SplashScreen from 'react-native-splash-screen'
 
@@ -45,6 +46,8 @@ console.log("Store props = " + storeprops);
 
 export default class mainPage extends Component {
   componentWillMount() {
+    //store.dispatch(getPosition());
+    store.dispatch(fetching.getLoc());
     store.dispatch(fetching.getAirTemp());
     store.dispatch(fetching.getCur());
     store.dispatch(fetching.getHeight());

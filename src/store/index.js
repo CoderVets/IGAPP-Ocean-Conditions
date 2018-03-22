@@ -4,6 +4,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
+//import geoMiddleware from 'redux-effects-geolocation';
 //import { combineReducers } from 'redux';
 //import reducers from './reducers';
 
@@ -32,3 +33,6 @@ let store = creatStoreWithMiddleware(yourApp) */
 export default (initialState={}) => {
 	return applyMiddleware(thunk,logger)(createStore)(rootReducer, initialState)
 }
+// export default (initialState={}) => {
+// 	return applyMiddleware(thunk,logger,geoMiddleware)(createStore)(rootReducer, initialState)
+// }

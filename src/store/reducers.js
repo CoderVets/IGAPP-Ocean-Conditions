@@ -180,6 +180,17 @@ const fetchingVis = (state = false, action) => {
   }
 };
 
+const getLocR = (state = {}, action) => {
+  let newState;
+  switch (action.type) {
+    case C.GET_GEO:
+      newState = action.payload
+      return newState;
+    default:
+      return state;
+  }
+};
+
 /* const user = (state = {}, action) => {
   let newState;
   switch (action.type) {
@@ -221,6 +232,7 @@ export default combineReducers({
   fetchingWT,
   fetchingWind,
   fetchingVis,
+  getLocR,
   //user,
   }
 )

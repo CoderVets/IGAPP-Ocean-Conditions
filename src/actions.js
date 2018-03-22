@@ -1,6 +1,10 @@
 import C from './constants'
 import csvjson from 'csvjson'
 import urlMaker from '../js/urlMaker'
+import { getPosition } from 'redux-effects-geolocation';
+import storeFactory from "./store";
+
+const store = storeFactory();
 
 export const addError = (message) => ({
   type: C.ADD_ERROR,
@@ -337,5 +341,13 @@ export const getVis = () => dispatch => {
     dispatch({
       type: C.CANCEL_FETCHING_VIS
     })
+  })
+}
+
+export const getLoc = () => dispatch => {
+  const propmise = store.dispatch(getPosition());
+  dispatch({
+    type: C.GET_GEO,
+    payload: propmise,
   })
 }

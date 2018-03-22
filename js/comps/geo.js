@@ -6,12 +6,12 @@ class Geo extends Component {
     super(props);
 
     this.state = {
-      latitude: null,
-      longitude: null,
+      latitude: 2222,
+      longitude: 666,
       error: null
-    };
-  }
-
+    };console.log('goe****work damn it****' + this.state.latitude)
+  } 
+  
   componentDidMount() {
     this.watchId = navigator.geolocation.watchPosition(
       position => {
@@ -30,9 +30,10 @@ class Geo extends Component {
       }
     );
   }
-
+  
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.watchId);
+    
   }
 
   render() {
