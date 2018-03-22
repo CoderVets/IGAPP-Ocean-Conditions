@@ -16,12 +16,12 @@ export const clearError = index => ({
   payload: index
 })
 
-export const isFetching = () => ({
-  type: C.FETCHING,
+export const isFetchingLoc = () => ({
+  type: C.FETCHING_LOC,
 })
 
-export const notFetching = () => ({
-  type: C.CANCEL_FETCHING,
+export const notFetchingLoc = () => ({
+  type: C.CANCEL_FETCHING_LOC,
 })
 
 // export function getGeo(latitude, longitude, error) {
@@ -344,10 +344,10 @@ export const getVis = () => dispatch => {
   })
 }
 
-export const getLoc = () => dispatch => {
-  const propmise = store.dispatch(getPosition());
+export const getLoc = (userLoc) => dispatch => {
+  //const propmise = store.dispatch(getPosition());
   dispatch({
     type: C.GET_GEO,
-    payload: propmise,
+    payload: userLoc,
   })
 }

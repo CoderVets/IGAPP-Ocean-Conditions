@@ -36,7 +36,8 @@ import DispalyVis from "./visibility";
 import WindDir from "./windDirection";
 import WindSpeed from "./windSpeed";
 import WindGust from "./windGust";
-import { getPosition } from 'redux-effects-geolocation';
+import dispatchLoop from '../dispatchLoop'
+//import { getPosition } from 'redux-effects-geolocation';
 
 //import SplashScreen from 'react-native-splash-screen'
 
@@ -45,16 +46,53 @@ var storeprops = { airTemp };
 console.log("Store props = " + storeprops);
 
 export default class mainPage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      latitude: null,
+      longitude: null,
+      error: null
+    };//console.log('goe****work damn it****' + this.state.latitude)
+  }
+
   componentWillMount() {
+    store.dispatch(fetching.isFetchingLoc)
+    this.watchId = navigator.geolocation.watchPosition(
+      position => {
+        // this.setState({
+        //   latitude: position.coords.latitude,
+        //   longitude: position.coords.longitude,
+        //   error: null
+        // });
+        const userPos = ({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          error: null
+        });
+        console.log('********* before getLoc call ***********')
+        store.dispatch(fetching.getLoc(userPos))
+        store.dispatch(fetching.notFetchingLoc)
+      },
+      error => this.setState({ error: error.message }),
+      {
+        enableHighAccuracy: true,
+        timeout: 20000,
+        maximumAge: 1000,
+        distanceFilter: 10
+      }
+    );
+
+    dispatchLoop()
     //store.dispatch(getPosition());
-    store.dispatch(fetching.getLoc());
-    store.dispatch(fetching.getAirTemp());
-    store.dispatch(fetching.getCur());
-    store.dispatch(fetching.getHeight());
-    store.dispatch(fetching.getTide());
-    store.dispatch(fetching.getVis());
-    store.dispatch(fetching.getWaterTemp());
-    store.dispatch(fetching.getWind());
+    // store.dispatch(fetching.getLoc());
+    // store.dispatch(fetching.getAirTemp());
+    // store.dispatch(fetching.getCur());
+    // store.dispatch(fetching.getHeight());
+    // store.dispatch(fetching.getTide());
+    // store.dispatch(fetching.getVis());
+    // store.dispatch(fetching.getWaterTemp());
+    // store.dispatch(fetching.getWind());
   }
 
   // componentDidMount() {

@@ -6,8 +6,8 @@ class Geo extends Component {
     super(props);
 
     this.state = {
-      latitude: 2222,
-      longitude: 666,
+      latitude: null,
+      longitude: null,
       error: null
     };console.log('goe****work damn it****' + this.state.latitude)
   } 

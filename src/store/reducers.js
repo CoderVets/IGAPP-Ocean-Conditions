@@ -191,6 +191,17 @@ const getLocR = (state = {}, action) => {
   }
 };
 
+const fetchingLoc = (state = false, action) => {
+  switch (action.type) {
+    case C.FETCHING_LOC:
+      return true;
+    case C.CANCEL_FETCHING_LOC:
+      return false;
+    default:
+      return state;
+  }
+};
+
 /* const user = (state = {}, action) => {
   let newState;
   switch (action.type) {
@@ -233,6 +244,7 @@ export default combineReducers({
   fetchingWind,
   fetchingVis,
   getLocR,
+  fetchingLoc,
   //user,
   }
 )
