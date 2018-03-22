@@ -21,7 +21,7 @@ const CurrentSpeed = props => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{currentSpeed}</Text>
-      <Text style={styles.text}> MPH</Text>
+      <Text style={styles.text}>MPH</Text>
     </View>
   );
 };
