@@ -109,19 +109,20 @@ export default class mainPage extends Component {
                 />
                 <CurrentDirection />
               </View>
-              <View style={{ flexDirection: "row", paddingBottom: 40 }}>
-                <Image
-                  source={require("./images/windDir.png")}
-                  style={styles.backgroundImage}
-                />
-                <WindDir />
-              </View>
+              
               <View style={{ flexDirection: "row", paddingBottom: 40 }}>
                 <Image
                   source={require("./images/windSpeed.png")}
                   style={styles.backgroundImage}
                 />
                 <WindSpeed />
+              </View>
+              <View style={{ flexDirection: "row", paddingBottom: 40 }}>
+                <Image
+                  source={require("./images/windDir.png")}
+                  style={styles.backgroundImage}
+                />
+                <WindDir />
               </View>
               <View style={{ flexDirection: "row", paddingBottom: 40 }}>
                 <Image

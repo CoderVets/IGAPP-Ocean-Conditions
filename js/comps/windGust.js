@@ -23,6 +23,7 @@ const windGust = props => {
     <View style={styles.container}>
       <Text style={styles.text}> {windGst}</Text>
       <Text style={styles.text}>MPH</Text>
+      <Text style={styles.fine}>Gust</Text>
     </View>
   );
 };
@@ -40,6 +41,16 @@ const styles = StyleSheet.create({
     marginTop: "auto",
     marginBottom: "auto",
     fontSize: 32,
+    color: "#0b0b0c",
+    paddingLeft: 30
+  },
+  fine: {
+    fontWeight: "bold",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    marginTop: "auto",
+    marginBottom: "auto",
+    fontSize: 14,
     color: "#0b0b0c",
     paddingLeft: 30
   }

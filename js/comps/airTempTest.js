@@ -22,6 +22,7 @@ const AirTempTest = props => {
     <View style={styles.container}>
       <Text style={styles.text}>ºF</Text>
       <Text style={styles.text}>{airTemp}</Text>
+      <Text style={styles.fine}>Air</Text>
     </View>
   );
 };
@@ -39,6 +40,16 @@ const styles = StyleSheet.create({
     marginTop: "auto",
     marginBottom: "auto",
     fontSize: 32,
+    color: "#0b0b0c",
+    paddingLeft: 30
+  },
+  fine: {
+    fontWeight: "bold",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    marginTop: "auto",
+    marginBottom: "auto",
+    fontSize: 14,
     color: "#0b0b0c",
     paddingLeft: 30
   }
