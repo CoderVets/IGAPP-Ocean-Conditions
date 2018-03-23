@@ -11,15 +11,6 @@ import {
 } from "react-native";
 
 import storeFactory from "../../src/store";
-// import {
-//   addError,
-//   clearError,
-//   isFetching,
-//   notFetching,
-//   getAirTemp,
-//   getCur,
-// } from '../../src/actions'
-
 import * as fetching from "../../src/actions";
 import { connect } from "react-redux";
 import { Provider } from "react-redux";
@@ -37,9 +28,6 @@ import WindDir from "./windDirection";
 import WindSpeed from "./windSpeed";
 import WindGust from "./windGust";
 import dispatchLoop from '../dispatchLoop'
-//import { getPosition } from 'redux-effects-geolocation';
-
-//import SplashScreen from 'react-native-splash-screen'
 
 const store = storeFactory();
 var storeprops = { airTemp };
@@ -53,51 +41,31 @@ export default class mainPage extends Component {
       latitude: null,
       longitude: null,
       error: null
-    };//console.log('goe****work damn it****' + this.state.latitude)
+    };
   }
 
   componentWillMount() {
-    store.dispatch(fetching.isFetchingLoc)
+    store.dispatch(fetching.isFetchingLoc())
     this.watchId = navigator.geolocation.watchPosition(
       position => {
-        // this.setState({
-        //   latitude: position.coords.latitude,
-        //   longitude: position.coords.longitude,
-        //   error: null
-        // });
         const userPos = ({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
           error: null
         });
-        console.log('********* before getLoc call ***********')
+        console.log('********* before getLoc call ***********', store.getState().getLocR)
         store.dispatch(fetching.getLoc(userPos))
-        store.dispatch(fetching.notFetchingLoc)
+        store.dispatch(fetching.notFetchingLoc())
       },
       error => this.setState({ error: error.message }),
       {
         enableHighAccuracy: true,
         timeout: 20000,
         maximumAge: 1000,
-        distanceFilter: 10
+        distanceFilter: 1000
       }
     );
-
-    dispatchLoop()
-    //store.dispatch(getPosition());
-    // store.dispatch(fetching.getLoc());
-    // store.dispatch(fetching.getAirTemp());
-    // store.dispatch(fetching.getCur());
-    // store.dispatch(fetching.getHeight());
-    // store.dispatch(fetching.getTide());
-    // store.dispatch(fetching.getVis());
-    // store.dispatch(fetching.getWaterTemp());
-    // store.dispatch(fetching.getWind());
   }
-
-  // componentDidMount() {
-  //   SplashScreen.hide();
-  // }
 
   render() {
     return (

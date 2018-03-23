@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
 	return {
 		height: state.height,
-		fetching: state.fetching,
+		fetching: state.fetchingHeight,
 	}
 }
 

@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
 	return {
 		tide: state.tide,
-		fetching: state.fetching,
+		fetching: state.fetchingTide,
 	}
 }
 

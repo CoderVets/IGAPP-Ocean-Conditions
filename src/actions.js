@@ -16,33 +16,6 @@ export const clearError = index => ({
   payload: index
 })
 
-export const isFetchingLoc = () => ({
-  type: C.FETCHING_LOC,
-})
-
-export const notFetchingLoc = () => ({
-  type: C.CANCEL_FETCHING_LOC,
-})
-
-// export function getGeo(latitude, longitude, error) {
-//   return {
-//     type: GET_LOC,
-//     payload: {
-//       watchId = navigator.geolocation.watchPosition(
-//         (position) => ({
-//             latitude: position.coords.latitude,
-//             longitude: position.coords.longitude,
-//             error: null,
-//           }),
-        
-//         (error) => this.setState({ error: error.message }),
-//         { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000, distanceFilter: 10 },
-        
-//       )
-//     },
-//   };
-// }
-
 export const getAirTemp = () => dispatch => {
 
   dispatch({
@@ -349,5 +322,17 @@ export const getLoc = (userLoc) => dispatch => {
   dispatch({
     type: C.GET_GEO,
     payload: userLoc,
+  })
+}
+
+export const isFetchingLoc = () => dispatch => {
+  dispatch ({
+    type: C.FETCHING_LOC,
+  })
+}
+
+export const notFetchingLoc = () => dispatch => {
+  dispatch ({
+    type: C.CANCEL_FETCHING_LOC,
   })
 }

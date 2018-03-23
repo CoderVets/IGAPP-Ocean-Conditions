@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
 	return {
 		currents: state.currents,
-		fetching: state.fetching,
+		fetching: state.fetchingCur,
 	}
 }
 

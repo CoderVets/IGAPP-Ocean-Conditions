@@ -1,71 +1,37 @@
-import C from '../src/constants'
-import geo from './comps/geo'
-import storeFactory from '../src/store'
-// import { connect } from 'react-redux'
-const store = storeFactory();
-console.log('urlMaker' + store.getState() + '*******')
-// const urlMaker = (x, props) => {
-export default urlMaker = (x, props) => {
+export default urlMaker = (x, geoLocS) => {
   
   console.log(x)
   console.log('urlMaker ' + x)
-  
-  const locLat = Object.assign({geo},geo.state,);
+  console.log('urlMaker ', geoLocS , '*******')
 
-  
-
-  console.log('***********urlMaker********* ' +locLat)
-
-  var minLon = -83.2130
-  var minLat = 24.6220
-  var maxLon = -79.2710
-  var maxLat = 27.1220
-  var datumLon = -71.4006
-  var datumLat = 41.8067
-
-  // var minLon = datumLon - .05
-  // var minLat = datumLat - .03
-  // var maxLon = datumLon + .05
-  // var maxLat = datumLat + .03
-console.log('MinLong' + minLon + 'minLat' + minLat + 'maxLon' + maxLon + 'maxLat' + maxLat)
-  // var minLon = -72.00
-  // var minLat = 41.0
-  // var maxLon = -71.00
-  // var maxLat = 42
-  // var startTime = '2018-03-09T00:00:00Z'
-  // var endTime = '2018-03-09T00:59:00Z'
-  // var datumLon = -71.4006
-  // var datumLat = 41.8067
-  
+  var minLon = geoLocS.longitude - .15
+  var minLat = geoLocS.latitude - .13
+  var maxLon = geoLocS.longitude + .15
+  var maxLat = geoLocS.latitude + .13
+ 
   var urlStart = 'https://opendap.co-ops.nos.noaa.gov/ioos-dif-sos/SOS?service=SOS' +
                   '&request=GetObservation&version=1.0.0' +
                   '&responseFormat=text/csv' +
                   //'&eventTime=' + startTime + '/' + endTime +
                   '&featureOfInterest=BBOX:'+ minLon + ',' + minLat + ',' + maxLon + ',' + maxLat
   switch (x) {
-    //case 'airTemp':
     case 0:
       var urlEnd = '&observedProperty=air_temperature' +
                     '&unit=Fahrenheit' +
                     '&offering=urn:ioos:network:NOAA.NOS.CO-OPS:MetActive'
-      var constType = C.GET_AIR_TEMP
                     break
-    //case 'airPress':
     case 1:
       var urlEnd = '&observedProperty=air_pressure' +
                     '&offering=urn:ioos:network:NOAA.NOS.CO-OPS:MetActive'
                     break
-    //case 'electCond':
     case 2:
       var urlEnd = '&observedProperty=sea_water_electrical_conductivity' +
                     '&offering=urn:ioos:network:NOAA.NOS.CO-OPS:MetActive'
                     break
-    //case 4:
     case 3: 
       var urlEnd = '&observedProperty=sea_water_speed&direction_of_sea_water_velocity' +
                     '&offering=urn:ioos:network:NOAA.NOS.CO-OPS:CurrentsActive' +
                     '&procedure=urn:ioos:network:NOAA.NOS.CO-OPS:CurrentsActive'
-      var constType = C.GET_CURRENTS
                     break
     case 4:
       var urlEnd = '&observedProperty=sea_water_salinity' +
@@ -75,8 +41,7 @@ console.log('MinLong' + minLon + 'minLat' + minLat + 'maxLon' + maxLon + 'maxLat
       var urlEnd = '&observedProperty=water_surface_height_above_reference_datum' +
                     '&offering=urn:ioos:network:NOAA.NOS.CO-OPS:WaterLevelActive' +
                     '&result=VerticalDatum%3D%3Durn:ioos:def:datum:noaa::MLLW' +
-                    '&dataType=VerifiedSixMinute&unit=Feet'+ datumLon + ',' + datumLat
-       //var constType =  C.GET_WS_ABOVE_DATUM         
+                    '&dataType=VerifiedSixMinute&unit=Feet'//+ datumLon + ',' + datumLat         
                     break
     case 6:
       var urlEnd = '&observedProperty=sea_surface_height_amplitude_due_to_equilibrium_ocean_tide' +
@@ -117,18 +82,6 @@ console.log('MinLong' + minLon + 'minLat' + minLat + 'maxLon' + maxLon + 'maxLat
       var urlEnd = '&observedProperty=visibility' +
                     '&offering=urn:ioos:network:NOAA.NOS.CO-OPS:MetActive'
   }
+  console.log('********url = ', urlStart + urlEnd)
   return (urlStart + urlEnd)
-  // return (urlReturn = {
-  //   url: urlStart + urlEnd,
-  //   dispType: constType,
-  // })
 }
-
-// const mapStateToProps = (state) => {
-//   return {
-//       datumlat: state.getLocR.latitude,
-//       datumlon: state.getLocR.longitude,
-//   }
-// }
-
-// export default connect(mapStateToProps)(urlMaker)
