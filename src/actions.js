@@ -1,6 +1,10 @@
 import C from './constants'
 import csvjson from 'csvjson'
 import urlMaker from '../js/urlMaker'
+import { getPosition } from 'redux-effects-geolocation';
+import storeFactory from "./store";
+
+const store = storeFactory();
 
 export const addError = (message) => ({
   type: C.ADD_ERROR,
@@ -11,33 +15,6 @@ export const clearError = index => ({
   type: C.CLEAR_ERROR,
   payload: index
 })
-
-export const isFetching = () => ({
-  type: C.FETCHING,
-})
-
-export const notFetching = () => ({
-  type: C.CANCEL_FETCHING,
-})
-
-// export function getGeo(latitude, longitude, error) {
-//   return {
-//     type: GET_LOC,
-//     payload: {
-//       watchId = navigator.geolocation.watchPosition(
-//         (position) => ({
-//             latitude: position.coords.latitude,
-//             longitude: position.coords.longitude,
-//             error: null,
-//           }),
-        
-//         (error) => this.setState({ error: error.message }),
-//         { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000, distanceFilter: 10 },
-        
-//       )
-//     },
-//   };
-// }
 
 export const getAirTemp = () => dispatch => {
 
@@ -337,5 +314,25 @@ export const getVis = () => dispatch => {
     dispatch({
       type: C.CANCEL_FETCHING_VIS
     })
+  })
+}
+
+export const getLoc = (userLoc) => dispatch => {
+  //const propmise = store.dispatch(getPosition());
+  dispatch({
+    type: C.GET_GEO,
+    payload: userLoc,
+  })
+}
+
+export const isFetchingLoc = () => dispatch => {
+  dispatch ({
+    type: C.FETCHING_LOC,
+  })
+}
+
+export const notFetchingLoc = () => dispatch => {
+  dispatch ({
+    type: C.CANCEL_FETCHING_LOC,
   })
 }

@@ -1,17 +1,6 @@
 import C from '../constants'
 import { combineReducers } from 'redux'
 
-/* export const userLocation = (state = {}, action) => {
-    (action.type === GET_LOC) ?
-      action.payload :
-        state,
-}; */
-
-/* const getEtaAccToken = (state = null, action) =>
-  (action.type === C.ETA_ACC_TOKEN) ?
-    action.payload :
-    state; */
-
 const airTemp = (state = {}, action) => {
   let newState;
   switch (action.type) {
@@ -180,32 +169,29 @@ const fetchingVis = (state = false, action) => {
   }
 };
 
-/* const user = (state = {}, action) => {
+const getLocR = (state = {}, action) => {
   let newState;
   switch (action.type) {
-    case C.GET_USER:
-      newState = action.user;
-      return newState;
-    case C.RECIEVE_USER:
-      console.log('THIS IS THE REDUCER FIRING WE HAVE A REDUX STORE');
-      newState = {
-        access_token: action.user.data.access_token,
-        expires_in: action.user.data.refresh_token,
-        refresh_token: action.user.data.token_type,
-        token_type: action.user.data.expires_in,
-        scope: action.user.data.scope,
-      };
-      console.log('THIS IS THE NEW USER STATE');
-      console.log(newState);
+    case C.GET_GEO:
+      newState = action.payload
       return newState;
     default:
       return state;
   }
-}; */
+};
+
+const fetchingLoc = (state = false, action) => {
+  switch (action.type) {
+    case C.FETCHING_LOC:
+      return true;
+    case C.CANCEL_FETCHING_LOC:
+      return false;
+    default:
+      return state;
+  }
+};
 
 export default combineReducers({
-  //getEtaAccToken,
-  //getLyftETA,
   airTemp,
   currents,
   height,
@@ -221,6 +207,7 @@ export default combineReducers({
   fetchingWT,
   fetchingWind,
   fetchingVis,
-  //user,
+  getLocR,
+  fetchingLoc,
   }
 )

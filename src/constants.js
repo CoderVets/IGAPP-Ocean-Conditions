@@ -32,6 +32,9 @@ const constants = {
 
   GET_GEO: 'GET_GEO',
   GET_DATA: 'GET_DATA',
+
+  FETCHING_LOC: 'FETCHING_LOC',
+  CANCEL_FETCHING_LOC: 'CANCEL_FETCHING_LOC'
   
 
 

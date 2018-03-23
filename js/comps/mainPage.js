@@ -11,15 +11,6 @@ import {
 } from "react-native";
 
 import storeFactory from "../../src/store";
-// import {
-//   addError,
-//   clearError,
-//   isFetching,
-//   notFetching,
-//   getAirTemp,
-//   getCur,
-// } from '../../src/actions'
-
 import * as fetching from "../../src/actions";
 import { connect } from "react-redux";
 import { Provider } from "react-redux";
@@ -36,27 +27,45 @@ import DispalyVis from "./visibility";
 import WindDir from "./windDirection";
 import WindSpeed from "./windSpeed";
 import WindGust from "./windGust";
-
-//import SplashScreen from 'react-native-splash-screen'
+import dispatchLoop from '../dispatchLoop'
 
 const store = storeFactory();
 var storeprops = { airTemp };
 console.log("Store props = " + storeprops);
 
 export default class mainPage extends Component {
-  componentWillMount() {
-    store.dispatch(fetching.getAirTemp());
-    store.dispatch(fetching.getCur());
-    store.dispatch(fetching.getHeight());
-    store.dispatch(fetching.getTide());
-    store.dispatch(fetching.getVis());
-    store.dispatch(fetching.getWaterTemp());
-    store.dispatch(fetching.getWind());
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      latitude: null,
+      longitude: null,
+      error: null
+    };
   }
 
-  // componentDidMount() {
-  //   SplashScreen.hide();
-  // }
+  componentWillMount() {
+    store.dispatch(fetching.isFetchingLoc())
+    this.watchId = navigator.geolocation.watchPosition(
+      position => {
+        const userPos = ({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          error: null
+        });
+        console.log('********* before getLoc call ***********', store.getState().getLocR)
+        store.dispatch(fetching.getLoc(userPos))
+        store.dispatch(fetching.notFetchingLoc())
+      },
+      error => this.setState({ error: error.message }),
+      {
+        enableHighAccuracy: true,
+        timeout: 20000,
+        maximumAge: 1000,
+        distanceFilter: 1000
+      }
+    );
+  }
 
   render() {
     return (

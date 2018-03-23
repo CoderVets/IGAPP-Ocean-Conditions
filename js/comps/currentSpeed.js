@@ -55,11 +55,11 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = state => {
-  return {
-    currents: state.currents,
-    fetching: state.fetching
-  };
-};
+const mapStateToProps = (state) => {
+	return {
+		currents: state.currents,
+		fetching: state.fetchingCur,
+	}
+}
 
 export default connect(mapStateToProps)(CurrentSpeed);
