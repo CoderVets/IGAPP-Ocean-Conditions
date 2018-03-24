@@ -62,7 +62,7 @@ export default class mainPage extends Component {
         enableHighAccuracy: true,
         timeout: 20000,
         maximumAge: 1000,
-        distanceFilter: 1000
+        distanceFilter: 556
       }
     );
   }
