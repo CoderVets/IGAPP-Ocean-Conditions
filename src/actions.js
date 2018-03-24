@@ -1,7 +1,6 @@
 import C from './constants'
 import csvjson from 'csvjson'
 import urlMaker from '../js/urlMaker'
-import { getPosition } from 'redux-effects-geolocation';
 import storeFactory from "./store";
 
 const store = storeFactory();
