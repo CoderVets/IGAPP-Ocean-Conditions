@@ -9,9 +9,9 @@ class Geo extends Component {
       latitude: null,
       longitude: null,
       error: null
-    };
-  }
-
+    };console.log('goe****work damn it****' + this.state.latitude)
+  } 
+  
   componentDidMount() {
     this.watchId = navigator.geolocation.watchPosition(
       position => {
@@ -30,9 +30,10 @@ class Geo extends Component {
       }
     );
   }
-
+  
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.watchId);
+    
   }
 
   render() {
@@ -46,8 +47,8 @@ class Geo extends Component {
         }}
       >
         <Text style={styles.bodyText}> Current Location: </Text>
-        <Text>Latitude: {this.state.latitude}</Text>
-        <Text>Longitude: {this.state.longitude}</Text>
+        <Text style={styles.text}>Latitude: {this.state.latitude}</Text>
+        <Text style={styles.text2}>Longitude: {this.state.longitude}</Text>
         {this.state.error ? <Text>Error: {this.state.error}</Text> : null}
       </View>
     );
@@ -57,8 +58,18 @@ class Geo extends Component {
 const styles = StyleSheet.create({
   bodyText: {
     marginTop: 70,
-    fontSize: 20,
+    fontSize: 26,
     fontWeight: "bold"
+  },
+  text: {
+    
+    fontSize: 22,
+    color: '#0b0b0c'
+  },
+  text2: {
+    
+    fontSize: 22,
+    color: '#0b0b0c'
   }
 });
 

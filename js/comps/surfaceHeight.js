@@ -20,12 +20,9 @@ const SurfaceHeight= (props) => {
   }
   return (
     <View style={styles.container}>
-    <ImageBackground
-            source={require("./images/textBackground.jpg")}
-            style={styles.backgroundImage}
-          >
+   
       <Text style={styles.text}>{surfaceHeight}</Text>
-      </ImageBackground>
+      
     </View>
   )
 }
@@ -38,27 +35,19 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 'bold',
-    justifyContent: "flex-end",
+    justifyContent: "center",
     alignItems: "center",
-    // marginBottom: 15,
+    marginTop: 'auto',
     fontSize: 20
     
   },
-  backgroundImage: {
-    flex: 1,
-
-    width: null,
-    height: null,
-    opacity: 0.8,
-    alignItems: "center",
-    justifyContent: "center"
-  },
+  
 })
 
 const mapStateToProps = (state) => {
 	return {
 		height: state.height,
-		fetching: state.fetching,
+		fetching: state.fetchingHeight,
 	}
 }
 

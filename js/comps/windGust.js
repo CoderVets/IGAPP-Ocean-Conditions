@@ -9,24 +9,21 @@ import {
 import { connect } from "react-redux";
 import findElement from "../findElement";
 
-const watertemp = props => {
-  var waterTemp = findElement(
-    props.waterTemp[0],
-    '"sea_water_temperature (F)"'
-  );
-
-  if (props.fetchingWT) {
+const windGust = props => {
+  var windGst = findElement(props.wind[0], '"wind_speed_of_gust (miles/hour)"');
+  if (props.fetchingWind) {
     return (
       <View>
         <ActivityIndicator />
       </View>
     );
   }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>ºF</Text>
-      <Text style={styles.text}>{waterTemp}</Text>
-      <Text style={styles.fine}>Water</Text>
+      <Text style={styles.text}> {windGst}</Text>
+      <Text style={styles.text}>MPH</Text>
+      <Text style={styles.fine}>Gust</Text>
     </View>
   );
 };
@@ -39,7 +36,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: "bold",
-    justifyContent: "center",
+    justifyContent: "flex-end",
     alignItems: "center",
     marginTop: "auto",
     marginBottom: "auto",
@@ -58,12 +55,11 @@ const styles = StyleSheet.create({
     paddingLeft: 30
   }
 });
-
 const mapStateToProps = state => {
   return {
-    waterTemp: state.waterTemp,
-    fetchingWT: state.fetchingWT
+    wind: state.wind,
+    fetchingWind: state.fetchingWind
   };
 };
 
-export default connect(mapStateToProps)(watertemp);
+export default connect(mapStateToProps)(windGust);

@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import storeFactory from './src/store';
 import RootNavigation from './src/components/navigation/RootNavigation';
 
@@ -10,9 +10,9 @@ console.log(store);
 console.log('####### CURENT STORE #######');
 
 const App = () => (
-    //<Provider store={store}>
+    <Provider store={store}>
         <RootNavigation />
-    //</Provider>
+    </Provider>
 
 );
 
